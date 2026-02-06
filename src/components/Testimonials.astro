@@ -1,0 +1,73 @@
+---
+import RevealText from './ui/RevealText';
+import SpotlightCard from './ui/SpotlightCard';
+
+const testimonials = [
+  {
+    quote: "Sync Labs saved us $200K in dubbing costs. We localized our entire course library into 12 languages in a weekend.",
+    name: "Sarah Chen",
+    title: "VP of Content, EduTech Global",
+    avatar: "SC",
+  },
+  {
+    quote: "The lip sync quality is indistinguishable from real video. Our AI influencer campaign hit 50M views in the first month.",
+    name: "Marcus Rivera",
+    title: "Creative Director, Viral Studio",
+    avatar: "MR",
+  },
+  {
+    quote: "We replaced our entire video ad production pipeline with Sync Labs. 10x faster, fraction of the cost, and the quality is stunning.",
+    name: "Priya Patel",
+    title: "Head of Growth, ScaleUp AI",
+    avatar: "PP",
+  },
+];
+---
+
+<section class="relative py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="inline-block text-sm font-semibold text-secondary uppercase tracking-widest mb-4">Testimonials</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+        <RevealText client:visible mode="auto" stagger={0.12} className="inline">
+          Loved by Creators Worldwide
+        </RevealText>
+      </h2>
+    </div>
+
+    <!-- Testimonials grid -->
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+      {testimonials.map((testimonial) => (
+        <SpotlightCard
+          client:visible
+          className="gradient-border p-6 lg:p-8 flex flex-col rounded-2xl"
+          spotlightColor="rgba(43, 248, 212, 0.10)"
+        >
+          {/* Stars */}
+          <div class="flex gap-1 mb-6">
+            {[1,2,3,4,5].map(() => (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#facc15" stroke="none">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            ))}
+          </div>
+
+          <blockquote class="text-light-text/70 leading-relaxed flex-1 mb-6">
+            "{testimonial.quote}"
+          </blockquote>
+
+          <div class="flex items-center gap-3 pt-4 border-t border-dark-border">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-sm font-bold text-white">
+              {testimonial.avatar}
+            </div>
+            <div>
+              <p class="font-semibold text-white text-sm">{testimonial.name}</p>
+              <p class="text-xs text-light-text/40">{testimonial.title}</p>
+            </div>
+          </div>
+        </SpotlightCard>
+      ))}
+    </div>
+  </div>
+</section>

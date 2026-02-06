@@ -1,0 +1,78 @@
+---
+import RevealText from './ui/RevealText';
+
+const steps = [
+  {
+    number: "01",
+    title: "Upload or Generate a Photo",
+    description: "Upload any photo with a face, or use our built-in Nano Banana AI to generate a photorealistic portrait from a text description. Works with selfies, professional headshots, or AI-created faces.",
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`,
+  },
+  {
+    number: "02",
+    title: "Add Your Audio or Video",
+    description: "Upload an audio file (MP3, WAV) with speech in any language, or provide a video file. Our AI will analyze every phoneme, tone, and timing nuance.",
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>`,
+  },
+  {
+    number: "03",
+    title: "Get Your Lip-Synced Video",
+    description: "Our AI generates a perfectly synchronized video in under 2 minutes. Natural jaw movements, accurate visemes, and seamless blending — ready to download and share.",
+    icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>`,
+  },
+];
+
+---
+
+<section id="how-it-works" class="relative py-24 lg:py-32 grid-bg">
+  <!-- Background orb -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[200px]"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header with RevealText -->
+    <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+      <span class="inline-block text-sm font-semibold text-secondary uppercase tracking-widest mb-4">How It Works</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+        <RevealText client:visible mode="auto" stagger={0.12} className="inline">
+          Three Steps to Perfect Sync
+        </RevealText>
+      </h2>
+      <p class="mt-6 text-lg text-light-text/50 max-w-2xl mx-auto">
+        No video editing skills required. Our AI handles the complex lip-sync technology — you just bring the content.
+      </p>
+    </div>
+
+    <!-- Hero image -->
+    <div class="relative max-w-4xl mx-auto mb-20 rounded-2xl overflow-hidden glow-cyan">
+      <img
+        src="/images/how-it-works.png"
+        alt="How Sync Labs works: Upload, Add Audio, Get Video"
+        class="w-full h-auto rounded-2xl"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-dark/40 via-transparent to-transparent rounded-2xl"></div>
+    </div>
+
+    <!-- Steps -->
+    <div class="grid lg:grid-cols-3 gap-8 lg:gap-12">
+      {steps.map((step, i) => (
+        <div class="relative">
+          {i < steps.length - 1 && (
+            <div class="hidden lg:block absolute top-10 left-full w-full h-px bg-gradient-to-r from-primary/40 to-transparent z-0"></div>
+          )}
+          <div class="relative z-10">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/20 flex items-center justify-center text-secondary">
+                <Fragment set:html={step.icon} />
+              </div>
+              <span class="text-6xl font-black text-dark-border">{step.number}</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">{step.title}</h3>
+            <p class="text-light-text/50 leading-relaxed">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

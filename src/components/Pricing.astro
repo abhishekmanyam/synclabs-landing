@@ -1,0 +1,128 @@
+---
+import RevealText from './ui/RevealText';
+
+const plans = [
+  {
+    name: "Starter",
+    price: "Free",
+    period: "",
+    description: "Perfect for trying out AI lip sync",
+    features: [
+      "5 videos per month",
+      "720p output",
+      "Basic lip sync model",
+      "Nano Banana: 10 images",
+      "Community support",
+    ],
+    cta: "Start Free",
+    highlighted: false,
+  },
+  {
+    name: "Pro",
+    price: "$29",
+    period: "/month",
+    description: "For creators and small teams",
+    features: [
+      "100 videos per month",
+      "1080p & 4K output",
+      "Advanced lip sync model",
+      "Nano Banana: 500 images",
+      "30+ language dubbing",
+      "API access",
+      "Priority support",
+    ],
+    cta: "Start Pro Trial",
+    highlighted: true,
+  },
+  {
+    name: "Enterprise",
+    price: "Custom",
+    period: "",
+    description: "For teams at scale",
+    features: [
+      "Unlimited videos",
+      "4K + custom resolution",
+      "Custom model fine-tuning",
+      "Unlimited Nano Banana",
+      "Dedicated GPU cluster",
+      "Full API + Webhooks",
+      "SSO & team management",
+      "Dedicated account manager",
+    ],
+    cta: "Contact Sales",
+    highlighted: false,
+  },
+];
+---
+
+<section id="pricing" class="relative py-24 lg:py-32 grid-bg">
+  <!-- Background -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[200px]"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+      <span class="inline-block text-sm font-semibold text-secondary uppercase tracking-widest mb-4">Pricing</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+        <RevealText client:visible mode="auto" stagger={0.12} className="inline">
+          Simple, Transparent
+        </RevealText>
+        <span class="gradient-text"> Pricing</span>
+      </h2>
+      <p class="mt-6 text-lg text-light-text/50 max-w-2xl mx-auto">
+        Start for free. Scale as you grow. No hidden fees, no surprises.
+      </p>
+    </div>
+
+    <!-- Pricing cards -->
+    <div class="grid lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+      {plans.map((plan) => (
+        <div class={`relative rounded-2xl p-6 lg:p-8 flex flex-col ${
+          plan.highlighted
+            ? 'bg-gradient-to-b from-primary/20 to-dark-card border-2 border-primary/40 scale-105 lg:scale-110'
+            : 'gradient-border'
+        }`}>
+          {plan.highlighted && (
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+              <span class="px-4 py-1.5 rounded-full bg-gradient-to-r from-primary to-secondary text-white text-xs font-bold uppercase tracking-wider">
+                Most Popular
+              </span>
+            </div>
+          )}
+
+          <div class="mb-6">
+            <h3 class="text-lg font-semibold text-white mb-2">{plan.name}</h3>
+            <p class="text-light-text/40 text-sm">{plan.description}</p>
+          </div>
+
+          <div class="mb-8">
+            <span class="text-4xl font-extrabold text-white">{plan.price}</span>
+            {plan.period && <span class="text-light-text/40 ml-1">{plan.period}</span>}
+          </div>
+
+          <ul class="space-y-3 mb-8 flex-1">
+            {plan.features.map((feature) => (
+              <li class="flex items-start gap-3 text-sm">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2bf8d4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span class="text-light-text/60">{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="#"
+            class={`w-full text-center py-3 px-6 rounded-xl font-semibold text-sm transition-all duration-300 ${
+              plan.highlighted
+                ? 'bg-gradient-to-r from-primary to-primary-dark text-white hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5'
+                : 'bg-dark-surface border border-dark-border text-light-text hover:border-primary/40 hover:bg-primary/5 hover:-translate-y-0.5'
+            }`}
+          >
+            {plan.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,90 @@
+---
+import RevealText from './ui/RevealText';
+import TextHighlighter from './ui/TextHighlighter';
+
+const useCases = [
+  {
+    title: "AI Avatars & Virtual Influencers",
+    description: "Create lifelike digital personas that speak, present, and engage audiences. Build virtual influencers for social media, brand ambassadors that work 24/7, or AI news anchors — all with perfectly synced lip movements.",
+    image: "/images/usecase-avatars.png",
+    stats: ["500M+ views", "on AI avatar content monthly"],
+    tags: ["Social Media", "Entertainment", "Branding"],
+  },
+  {
+    title: "Content Localization & Dubbing",
+    description: "Dub your videos into 30+ languages with natural lip sync. No more awkward mismatched mouth movements in translated content. Reach global audiences while maintaining the authenticity of the original performance.",
+    image: "/images/usecase-content.png",
+    stats: ["10x cheaper", "than traditional dubbing studios"],
+    tags: ["Media", "Education", "E-Learning"],
+  },
+  {
+    title: "Marketing Videos & Ad Campaigns",
+    description: "Produce personalized video ads at scale. Create spokesperson videos, product demos, and testimonials without expensive video shoots. Update messaging instantly — just swap the audio.",
+    image: "/images/nano-banana.png",
+    stats: ["3x higher", "engagement vs. static ads"],
+    tags: ["Advertising", "E-Commerce", "SaaS"],
+  },
+];
+---
+
+<section id="use-cases" class="relative py-24 lg:py-32">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+      <span class="inline-block text-sm font-semibold text-secondary uppercase tracking-widest mb-4">Use Cases</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+        <RevealText client:visible mode="auto" stagger={0.12} className="inline">
+          Built for Every
+        </RevealText>
+        <TextHighlighter client:visible highlightColor="#2bf8d4" type="wavy" animationDuration={1.5} strokeWidth={3}>
+          <span class="gradient-text"> Creator & Business</span>
+        </TextHighlighter>
+      </h2>
+      <p class="mt-6 text-lg text-light-text/50 max-w-2xl mx-auto">
+        From solo creators to enterprise teams, Sync Labs powers lip-sync workflows across industries.
+      </p>
+    </div>
+
+    <!-- Use cases -->
+    <div class="space-y-16 lg:space-y-24">
+      {useCases.map((useCase, i) => (
+        <div class={`grid lg:grid-cols-2 gap-8 lg:gap-16 items-center ${i % 2 === 1 ? 'lg:direction-rtl' : ''}`}>
+          {/* Image */}
+          <div class={`relative ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
+            <div class={`rounded-2xl overflow-hidden ${i % 2 === 0 ? 'glow-purple' : 'glow-cyan'}`}>
+              <img
+                src={useCase.image}
+                alt={useCase.title}
+                class="w-full h-auto rounded-2xl"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark/50 via-transparent to-transparent rounded-2xl"></div>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div class={`space-y-6 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+            <div class="flex flex-wrap gap-2">
+              {useCase.tags.map(tag => (
+                <span class="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary-light border border-primary/20">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-bold text-white">{useCase.title}</h3>
+            <p class="text-light-text/50 text-lg leading-relaxed">{useCase.description}</p>
+
+            <div class="gradient-border p-5 inline-flex items-center gap-4">
+              <div class="text-3xl font-extrabold gradient-text">{useCase.stats[0]}</div>
+              <div class="text-sm text-light-text/50">{useCase.stats[1]}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
