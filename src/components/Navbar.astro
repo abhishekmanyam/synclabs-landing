@@ -12,7 +12,7 @@ const navLinks = [
     <div class="flex items-center justify-between h-16 lg:h-20">
       <!-- Logo -->
       <a href="/" class="flex items-center">
-        <img src="/synclabs.png" alt="Sync Labs" class="h-18 w-auto" />
+        <img src="/synclabs.png" alt="Sync Labs" class="h-14 sm:h-16 lg:h-18 w-auto" />
       </a>
 
       <!-- Desktop Navigation -->
@@ -75,9 +75,9 @@ const navLinks = [
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-      navbar?.classList.add('bg-dark/80', 'backdrop-blur-xl', 'border-b', 'border-dark-border');
+      navbar?.classList.add('bg-dark/80', 'backdrop-blur-xl');
     } else {
-      navbar?.classList.remove('bg-dark/80', 'backdrop-blur-xl', 'border-b', 'border-dark-border');
+      navbar?.classList.remove('bg-dark/80', 'backdrop-blur-xl');
     }
   });
 

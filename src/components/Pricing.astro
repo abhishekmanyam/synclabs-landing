@@ -1,16 +1,12 @@
 ---
 const plans = [
   {
-    name: "Free Tier",
-    price: "$0",
+    name: "",
+    price: "",
     period: "",
     description: "Perfect for trying out AI lip sync",
     features: [
-      "3 videos (up to 30 seconds each)",
-      "200 MB max file size per upload",
-      "Multiple video formats (MP4, AVI, MOV, FLV, MKV)",
-      "Any audio format supported",
-      "Multi-language support via Whisper",
+      "3 videos per account (up to 30 seconds each)",
       "GPU-accelerated processing",
       "7-day output retention",
       "No credit card required"
@@ -28,11 +24,13 @@ const plans = [
     description: "For creators scaling their content",
     features: [
       "Unlimited videos (up to 10 min each)",
-      "1 GB max file size per upload",
+      "200 MB max file size per upload",
+      "Multiple video formats (MP4, AVI, MOV, FLV, MKV)",
+      "Any audio format supported",
+      "Multi-language support via Whisper",
       "Priority GPU processing",
-      "API access with webhooks",
+      "API access with webhooks (coming soon)",
       "30-day output retention",
-      "Multi-language support",
       "Email support",
     ],
     cta: "Notify Me",
@@ -91,8 +89,14 @@ const plans = [
             <div class="text-center mb-6">
               <h3 class="text-2xl font-bold text-cream mb-2">{plan.name}</h3>
               <div class="flex items-baseline justify-center gap-1 mb-2">
-                <span class="text-5xl font-extrabold text-cream">{plan.price}</span>
-                <span class="text-silver/60">{plan.period}</span>
+                {plan.price ? (
+                  <>
+                    <span class="text-5xl font-extrabold text-cream">{plan.price}</span>
+                    <span class="text-silver/60">{plan.period}</span>
+                  </>
+                ) : (
+                  <span class="text-3xl font-extrabold text-cream">{plan.cta}</span>
+                )}
               </div>
               <p class="text-silver/70">{plan.description}</p>
             </div>

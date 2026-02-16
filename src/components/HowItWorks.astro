@@ -22,48 +22,10 @@ const steps = [
   },
 ];
 
-const technicalSteps = [
-  {
-    title: "Face Detection & Analysis",
-    description: "Our AI identifies and tracks facial landmarks with sub-pixel precision, mapping key points around the mouth, jaw, and surrounding facial features to understand the natural structure and movement patterns.",
-    color: "from-cream to-silver",
-    spotlightColor: "rgba(242, 233, 228, 0.12)"
-  },
-  {
-    title: "Audio Processing & Phoneme Extraction",
-    description: "The audio is analyzed to extract phonemes (individual speech sounds), timing information, and prosodic features like pitch and rhythm. This creates a detailed map of what mouth shapes should appear at each moment.",
-    color: "from-cream to-silver",
-    spotlightColor: "rgba(242, 233, 228, 0.12)"
-  },
-  {
-    title: "Motion Synthesis",
-    description: "Advanced neural networks generate natural lip and jaw movements that correspond to each phoneme. The AI considers co-articulation (how sounds blend together) and maintains the person's unique speaking style and facial expressions.",
-    color: "from-cream to-silver",
-    spotlightColor: "rgba(242, 233, 228, 0.12)"
-  },
-  {
-    title: "Temporal Alignment",
-    description: "The generated mouth movements are precisely synchronized with the audio timeline, ensuring perfect frame-by-frame alignment. The system accounts for natural delays and transitions between different mouth positions.",
-    color: "from-cream to-silver",
-    spotlightColor: "rgba(242, 233, 228, 0.12)"
-  },
-  {
-    title: "Visual Blending & Refinement",
-    description: "The synthesized lip movements are seamlessly blended into the original video, preserving lighting, skin texture, and facial expressions. Advanced techniques ensure smooth transitions and natural-looking results without visible artifacts.",
-    color: "from-cream to-silver",
-    spotlightColor: "rgba(242, 233, 228, 0.12)"
-  },
-  {
-    title: "Quality Enhancement",
-    description: "Final post-processing optimizes the video quality, removes any temporal inconsistencies, and ensures smooth playback. The output maintains the original video resolution and quality while delivering perfectly synced lip movements.",
-    color: "from-cream to-silver",
-    spotlightColor: "rgba(242, 233, 228, 0.12)"
-  }
-];
 
 ---
 
-<section id="how-it-works" class="relative py-12 lg:py-16">
+<section id="how-it-works" class="relative pt-4 pb-12 lg:pt-6 lg:pb-16">
   <!-- Background orb -->
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cream/5 rounded-full blur-[200px]"></div>
 
@@ -82,7 +44,7 @@ const technicalSteps = [
     </div>
 
     <!-- Steps -->
-    <div class="grid lg:grid-cols-3 gap-8 lg:gap-12 mb-24">
+    <div class="grid lg:grid-cols-3 gap-8 lg:gap-12 mb-10">
       {steps.map((step, i) => (
         <div class="group relative">
           <div class="relative h-full p-8 rounded-2xl bg-surface border border-border hover:border-border-light transition-all duration-300">
@@ -107,9 +69,8 @@ const technicalSteps = [
     <!-- Video Demonstration Section -->
     <div class="mb-24">
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="inline-block text-sm font-semibold text-silver uppercase tracking-widest mb-4">See It In Action</span>
         <h3 class="text-3xl sm:text-4xl font-extrabold text-cream leading-tight mb-6">
-          Real Examples
+          Avatars
         </h3>
         <p class="text-lg text-silver/70">
           Watch how our AI transforms input videos with perfect lip synchronization.
@@ -117,18 +78,14 @@ const technicalSteps = [
       </div>
 
       <!-- Video Grid - Pill Style -->
-      <div class="flex flex-col sm:flex-row gap-6 max-w-6xl mx-auto">
+      <div class="flex flex-col sm:flex-row items-end gap-6 max-w-6xl mx-auto">
         <!-- Video 1 - Jessica -->
-        <div class="flex-1 group relative overflow-hidden rounded-3xl bg-surface border border-border hover:border-border-light transition-all duration-300">
-          <div class="p-4 text-center border-b border-border">
-            <h4 class="text-base font-bold text-cream">Jessica</h4>
-          </div>
+        <div class="flex-1 group relative overflow-hidden rounded-3xl bg-surface border border-border hover:border-border-light transition-all duration-300 mt-8">
           <div class="relative bg-charcoal overflow-hidden" style="aspect-ratio: 16/9;">
-            <video 
+            <video
               class="w-full h-full object-contain"
               controls
               preload="metadata"
-              poster="/images/input-image-1.png"
             >
               <source src="/images/input-video-1.mp4" type="video/mp4" />
               Your browser does not support the video tag.
@@ -138,73 +95,16 @@ const technicalSteps = [
 
         <!-- Video 2 - Michael -->
         <div class="flex-1 group relative overflow-hidden rounded-3xl bg-surface border border-border hover:border-border-light transition-all duration-300">
-          <div class="p-4 text-center border-b border-border">
-            <h4 class="text-base font-bold text-cream">Michael</h4>
-          </div>
           <div class="relative bg-charcoal overflow-hidden" style="aspect-ratio: 16/9;">
-            <video 
+            <video
               class="w-full h-full object-contain"
               controls
               preload="metadata"
-              poster="/images/input-image-2.png"
             >
               <source src="/images/input-video-2.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Technical Deep Dive -->
-    <div class="mt-32">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="inline-block text-sm font-semibold text-silver uppercase tracking-widest mb-4">The Technology</span>
-        <h3 class="text-3xl sm:text-4xl font-extrabold text-cream leading-tight mb-6">
-          AI Lip-Sync Pipeline
-        </h3>
-        <p class="text-lg text-silver/70">
-          Behind the scenes, our advanced AI processes your video through multiple stages to deliver photorealistic lip synchronization.
-        </p>
-      </div>
-
-      <!-- Technical Steps Grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {technicalSteps.map((step, index) => (
-          <div class="group relative">
-            <div class="relative h-full p-8 rounded-2xl bg-surface border border-border hover:border-border-light transition-all duration-300">
-              <!-- Icon -->
-              <div class={`w-14 h-14 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center text-black mb-6 font-bold text-lg`}>
-                {index + 1}
-              </div>
-
-              <!-- Content -->
-              <h3 class="text-xl font-bold text-cream mb-3">{step.title}</h3>
-              <p class="text-silver/70 leading-relaxed">{step.description}</p>
-
-              <!-- Hover glow effect -->
-              <div 
-                class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                style={`background: radial-gradient(circle at 50% 0%, ${step.spotlightColor}, transparent 70%);`}
-              ></div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <!-- Technical Highlights -->
-      <div class="mt-16 grid md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <div class="text-4xl font-black text-cream mb-2">30+ FPS</div>
-          <p class="text-silver/60 text-sm">Real-time processing speed for smooth, natural motion</p>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl font-black text-silver mb-2">Sub-Frame</div>
-          <p class="text-silver/60 text-sm">Precision timing for perfect audio-visual alignment</p>
-        </div>
-        <div class="text-center">
-          <div class="text-4xl font-black text-cream mb-2">Multi-Language</div>
-          <p class="text-silver/60 text-sm">Automatic language detection and phoneme mapping</p>
         </div>
       </div>
     </div>
