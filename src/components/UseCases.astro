@@ -4,85 +4,105 @@ import TextHighlighter from './ui/TextHighlighter';
 
 const useCases = [
   {
-    title: "AI Avatars & Virtual Influencers",
-    description: "Create lifelike digital personas that speak, present, and engage audiences. Build virtual influencers for social media, brand ambassadors that work 24/7, or AI news anchors — all with perfectly synced lip movements.",
+    title: "AI Avatars & Digital Presenters",
+    description: "Create lifelike digital personas for training videos, corporate communications, and social media. Build virtual spokespeople, AI news anchors, or digital influencers with perfectly synced lip movements that engage audiences 24/7.",
     image: "/images/usecase-avatars.png",
     stats: ["500M+ views", "on AI avatar content monthly"],
-    tags: ["Social Media", "Entertainment", "Branding"],
+    tags: ["Social Media", "Corporate", "Education"],
   },
   {
-    title: "Content Localization & Dubbing",
-    description: "Dub your videos into 30+ languages with natural lip sync. No more awkward mismatched mouth movements in translated content. Reach global audiences while maintaining the authenticity of the original performance.",
+    title: "Video Localization & Dubbing",
+    description: "Expand your global reach by dubbing videos into multiple languages while maintaining natural lip sync. Perfect for e-learning, marketing content, and entertainment — reach international audiences without expensive re-shoots.",
     image: "/images/usecase-content.png",
-    stats: ["10x cheaper", "than traditional dubbing studios"],
-    tags: ["Media", "Education", "E-Learning"],
+    stats: ["10x faster", "than traditional dubbing"],
+    tags: ["Media", "E-Learning", "Entertainment"],
   },
   {
-    title: "Marketing Videos & Ad Campaigns",
-    description: "Produce personalized video ads at scale. Create spokesperson videos, product demos, and testimonials without expensive video shoots. Update messaging instantly — just swap the audio.",
+    title: "Marketing & Sales Videos",
+    description: "Scale personalized video creation for marketing campaigns, product demos, and sales outreach. Create spokesperson videos, testimonials, and ads without expensive video production. Update messaging instantly by swapping audio.",
     image: "/images/nano-banana.png",
-    stats: ["3x higher", "engagement vs. static ads"],
-    tags: ["Advertising", "E-Commerce", "SaaS"],
+    stats: ["3x higher", "engagement vs. static content"],
+    tags: ["Marketing", "E-Commerce", "Sales"],
+  },
+  {
+    title: "Training & E-Learning",
+    description: "Produce engaging training videos with AI presenters that speak in any language. Create consistent, professional educational content at scale. Perfect for corporate training, online courses, and instructional videos.",
+    image: "/images/usecase-avatars.png",
+    stats: ["60% faster", "course production"],
+    tags: ["Education", "Corporate", "HR"],
+  },
+  {
+    title: "Social Media Content",
+    description: "Create viral-worthy content for TikTok, Instagram, and YouTube. Generate talking head videos, reaction videos, and educational content that captures attention. Repurpose audio content into engaging video formats.",
+    image: "/images/usecase-content.png",
+    stats: ["5x more", "engagement than text"],
+    tags: ["Social Media", "Content Creation", "Influencers"],
+  },
+  {
+    title: "Customer Support & Explainers",
+    description: "Build a library of video tutorials and FAQ responses with AI presenters. Create personalized customer onboarding videos, product walkthroughs, and support content that scales with your business.",
+    image: "/images/nano-banana.png",
+    stats: ["40% reduction", "in support tickets"],
+    tags: ["Support", "SaaS", "Customer Success"],
   },
 ];
 ---
 
-<section id="use-cases" class="relative py-24 lg:py-32">
-  <!-- Background -->
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
-
+<section id="use-cases" class="relative py-12 lg:py-16">
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section header -->
     <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-      <span class="inline-block text-sm font-semibold text-secondary uppercase tracking-widest mb-4">Use Cases</span>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+      <span class="inline-block text-sm font-semibold text-silver uppercase tracking-widest mb-4">Use Cases</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cream leading-tight">
         <RevealText client:visible mode="auto" stagger={0.12} className="inline">
           Built for Every
         </RevealText>
-        <TextHighlighter client:visible highlightColor="#2bf8d4" type="wavy" animationDuration={1.5} strokeWidth={3}>
+        <TextHighlighter client:visible highlightColor="#F2E9E4" type="wavy" animationDuration={1.5} strokeWidth={3}>
           <span class="gradient-text"> Creator & Business</span>
         </TextHighlighter>
       </h2>
-      <p class="mt-6 text-lg text-light-text/50 max-w-2xl mx-auto">
+      <p class="mt-6 text-lg text-silver/70 max-w-2xl mx-auto">
         From solo creators to enterprise teams, Sync Labs powers lip-sync workflows across industries.
       </p>
     </div>
 
-    <!-- Use cases -->
-    <div class="space-y-16 lg:space-y-24">
-      {useCases.map((useCase, i) => (
-        <div class={`grid lg:grid-cols-2 gap-8 lg:gap-16 items-center ${i % 2 === 1 ? 'lg:direction-rtl' : ''}`}>
-          {/* Image */}
-          <div class={`relative ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
-            <div class={`rounded-2xl overflow-hidden ${i % 2 === 0 ? 'glow-purple' : 'glow-cyan'}`}>
-              <img
-                src={useCase.image}
-                alt={useCase.title}
-                class="w-full h-auto rounded-2xl"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-dark/50 via-transparent to-transparent rounded-2xl"></div>
-            </div>
+    <!-- Use cases grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {useCases.map((useCase) => (
+        <div class="group relative flex flex-col overflow-hidden rounded-2xl bg-surface border border-border hover:border-border-light transition-all duration-300">
+          <!-- Image -->
+          <div class="relative h-48 flex-shrink-0 overflow-hidden bg-gradient-to-br from-cream/10 to-silver/10">
+            <img
+              src={useCase.image}
+              alt={useCase.title}
+              class="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
           </div>
 
-          {/* Content */}
-          <div class={`space-y-6 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
+          <!-- Content -->
+          <div class="flex flex-col flex-1 p-6">
+            <h3 class="text-xl font-bold text-cream mb-3">{useCase.title}</h3>
+            <p class="text-silver/70 text-sm leading-relaxed mb-4">{useCase.description}</p>
+
+            <!-- Stats -->
+            <div class="flex items-baseline gap-2 mb-4 mt-auto">
+              <span class="text-2xl font-bold text-cream">{useCase.stats[0]}</span>
+              <span class="text-sm text-silver/60">{useCase.stats[1]}</span>
+            </div>
+
+            <!-- Tags -->
             <div class="flex flex-wrap gap-2">
-              {useCase.tags.map(tag => (
-                <span class="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary-light border border-primary/20">
+              {useCase.tags.map((tag) => (
+                <span class="px-3 py-1 rounded-full bg-overlay-medium border border-border-light text-xs font-medium text-silver">
                   {tag}
                 </span>
               ))}
             </div>
-
-            <h3 class="text-2xl sm:text-3xl font-bold text-white">{useCase.title}</h3>
-            <p class="text-light-text/50 text-lg leading-relaxed">{useCase.description}</p>
-
-            <div class="gradient-border p-5 inline-flex items-center gap-4">
-              <div class="text-3xl font-extrabold gradient-text">{useCase.stats[0]}</div>
-              <div class="text-sm text-light-text/50">{useCase.stats[1]}</div>
-            </div>
           </div>
+
+          <!-- Hover Glow -->
+          <div class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-gradient-to-br from-cream/5 to-transparent"></div>
         </div>
       ))}
     </div>

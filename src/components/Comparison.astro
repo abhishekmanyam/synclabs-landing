@@ -1,0 +1,146 @@
+---
+import RevealText from './ui/RevealText';
+
+const comparison = [
+  {
+    feature: "Processing Speed",
+    syncLabs: "< 2 minutes",
+    syncLabsHighlight: true,
+    competitorA: "10-15 minutes",
+    competitorB: "5-8 minutes"
+  },
+  {
+    feature: "Languages Supported",
+    syncLabs: "30+",
+    syncLabsHighlight: true,
+    competitorA: "15",
+    competitorB: "20"
+  },
+  {
+    feature: "Lip Sync Accuracy",
+    syncLabs: "99.2%",
+    syncLabsHighlight: true,
+    competitorA: "95%",
+    competitorB: "97%"
+  },
+  {
+    feature: "AI Image Generation",
+    syncLabs: "✓ Included",
+    syncLabsHighlight: true,
+    competitorA: "✗",
+    competitorB: "✗"
+  },
+  {
+    feature: "API Access",
+    syncLabs: "✓ All plans",
+    syncLabsHighlight: true,
+    competitorA: "Enterprise only",
+    competitorB: "✓ Pro+"
+  },
+  {
+    feature: "Free Tier",
+    syncLabs: "✓ 5 videos/month",
+    syncLabsHighlight: true,
+    competitorA: "✗",
+    competitorB: "✓ 3 videos/month"
+  },
+  {
+    feature: "Starting Price",
+    syncLabs: "$0 (Free)",
+    syncLabsHighlight: true,
+    competitorA: "$49/month",
+    competitorB: "$29/month"
+  },
+  {
+    feature: "Max Resolution",
+    syncLabs: "4K",
+    syncLabsHighlight: false,
+    competitorA: "4K",
+    competitorB: "1080p"
+  },
+  {
+    feature: "Batch Processing",
+    syncLabs: "✓",
+    syncLabsHighlight: false,
+    competitorA: "✓",
+    competitorB: "✗"
+  },
+  {
+    feature: "Commercial License",
+    syncLabs: "✓ All paid plans",
+    syncLabsHighlight: true,
+    competitorA: "✓ Enterprise",
+    competitorB: "✓ All plans"
+  }
+];
+---
+
+<section id="comparison" class="relative py-12 lg:py-16">
+  <!-- Background -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cream/5 rounded-full blur-[200px]"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="inline-block text-sm font-semibold text-silver uppercase tracking-widest mb-4">Comparison</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cream leading-tight">
+        <RevealText client:visible mode="auto" stagger={0.12} className="inline">
+          Why Choose
+        </RevealText>
+        <span class="gradient-text"> Sync Labs?</span>
+      </h2>
+      <p class="mt-6 text-lg text-silver/50">
+        See how we stack up against the competition. Better quality, faster processing, and more affordable.
+      </p>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="overflow-x-auto">
+      <div class="inline-block min-w-full align-middle">
+        <div class="gradient-border rounded-2xl overflow-hidden">
+          <table class="min-w-full divide-y divide-dark-border">
+            <thead class="bg-dark-surface">
+              <tr>
+                <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-silver/60">Feature</th>
+                <th scope="col" class="px-6 py-4 text-center text-sm font-bold text-cream bg-cream/10">
+                  <div class="flex flex-col items-center gap-1">
+                    <span>Sync Labs</span>
+                    <span class="text-xs font-normal text-cream/70">(That's us!)</span>
+                  </div>
+                </th>
+                <th scope="col" class="px-6 py-4 text-center text-sm font-semibold text-silver/60">Competitor A</th>
+                <th scope="col" class="px-6 py-4 text-center text-sm font-semibold text-silver/60">Competitor B</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-dark-border bg-dark-card">
+              {comparison.map((row, index) => (
+                <tr class={index % 2 === 0 ? 'bg-dark-card' : 'bg-dark-surface/30'}>
+                  <td class="px-6 py-4 text-sm font-medium text-cream whitespace-nowrap">{row.feature}</td>
+                  <td class={`px-6 py-4 text-sm text-center font-semibold whitespace-nowrap ${
+                    row.syncLabsHighlight ? 'text-cream bg-cream/5' : 'text-silver'
+                  }`}>
+                    {row.syncLabs}
+                  </td>
+                  <td class="px-6 py-4 text-sm text-center text-silver/60 whitespace-nowrap">{row.competitorA}</td>
+                  <td class="px-6 py-4 text-sm text-center text-silver/60 whitespace-nowrap">{row.competitorB}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA below table -->
+    <div class="mt-12 text-center">
+      <p class="text-silver/60 mb-6">Ready to experience the difference?</p>
+      <a href="#pricing" class="btn-primary">
+        Start Free Trial
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

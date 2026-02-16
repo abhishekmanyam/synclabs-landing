@@ -7,24 +7,24 @@ import Magnet from './ui/Magnet';
 
 <section class="relative min-h-screen flex flex-col justify-center pt-24 pb-12 noise-overlay">
   <!-- Subtle background glow -->
-  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/8 rounded-full blur-[180px]"></div>
+  <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-cream/5 rounded-full blur-[180px]"></div>
 
   <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Centered hero copy -->
     <div class="text-center max-w-4xl mx-auto mb-12 lg:mb-16">
       <!-- Badge -->
-      <div class="animate-fade-in-up mb-8">
-        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary-light">
-          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-          Now with Nano Banana AI Image Generation
-        </span>
-      </div>
+    <div class="animate-fade-in-up mb-8">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-overlay-medium border border-border-light text-sm font-medium text-silver">
+        <span class="w-2 h-2 rounded-full bg-cream animate-pulse"></span>
+        Advanced AI Lip Sync Technology
+      </span>
+    </div>
 
       <!-- Headline -->
-      <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-[1.05] tracking-tight mb-6">
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light leading-[1.05] tracking-tight mb-6">
         <BlurText
           client:visible
-          text="Make Any Face"
+          text="Create Hyper-Realistic"
           delay={150}
           animateBy="words"
           direction="top"
@@ -33,14 +33,14 @@ import Magnet from './ui/Magnet';
         <br class="hidden sm:block" />
         <GradientText
           client:visible
-          colors={["#2bf8d4", "#ffffff", "#2bf8d4", "#ffffff", "#2bf8d4"]}
+          colors={["#F2E9E4", "#BFBCBA", "#F2E9E4", "#BFBCBA", "#F2E9E4"]}
           animationSpeed={4}
         >
-          Speak
+          Lip-Synced Videos
         </GradientText>
         <BlurText
           client:visible
-          text=" with AI"
+          text=" in Minutes"
           delay={150}
           animateBy="words"
           direction="top"
@@ -48,82 +48,102 @@ import Magnet from './ui/Magnet';
         />
       </h1>
 
-      <!-- Subheadline -->
-      <p class="text-lg sm:text-xl text-light-text/50 max-w-2xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200">
-        Upload a photo, add audio, and get hyper-realistic lip-synced video in minutes. No editing skills needed.
-      </p>
+      <!-- Key Benefits -->
+    <div class="flex flex-wrap items-center justify-center gap-6 mb-12 text-sm text-silver/70 animate-fade-in-up animation-delay-200">
+      <div class="flex items-center gap-2">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-cream">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Results in 2-3 minutes</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-cream">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Multi-language support</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-cream">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>GPU-accelerated processing</span>
+      </div>
+    </div>
 
       <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 animate-fade-in-up animation-delay-400">
-        <Magnet client:visible padding={60} magnetStrength={3}>
-          <AnimatedButton
-            client:visible
-            href="#pricing"
-            glow={true}
-            shimmerColor="#2bf8d4"
-            shimmerDuration="3s"
-            background="linear-gradient(135deg, #2bf8d4, #1cc4a8)"
-            className="!text-[#0D1E30]"
-          >
-            Start Creating Free
+      <div class="flex flex-col items-center gap-4 mt-10 animate-fade-in-up animation-delay-300">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Magnet client:visible padding={60} magnetStrength={3}>
+            <AnimatedButton
+              client:visible
+              href="#pricing"
+              glow={true}
+              shimmerColor="#F2E9E4"
+              shimmerDuration="3s"
+              background="linear-gradient(135deg, #F2E9E4, #BFBCBA)"
+              className="!text-[#0D0D0D]"
+            >
+              Create Your First Video Free
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </AnimatedButton>
+          </Magnet>
+          <a href="#how-it-works" class="btn-secondary text-base">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="10 8 16 12 10 16 10 8"></polygon>
             </svg>
-          </AnimatedButton>
-        </Magnet>
-        <a href="#how-it-works" class="btn-secondary text-base">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <polygon points="10 8 16 12 10 16 10 8"></polygon>
-          </svg>
-          See How It Works
-        </a>
+            Watch Demo
+          </a>
+        </div>
+        <span class="text-xs text-silver/40">No credit card required • 3 free videos</span>
       </div>
     </div>
 
     <!-- Product showcase: bento-style grid -->
-    <div class="animate-fade-in-up animation-delay-600">
+    <div class="animate-fade-in-up animation-delay-400">
       <div class="relative max-w-5xl mx-auto">
         <!-- Main product screenshot -->
-        <div class="relative rounded-2xl overflow-hidden border border-dark-border/60 shadow-2xl shadow-primary/5">
+        <div class="relative rounded-2xl overflow-hidden border border-border shadow-2xl shadow-cream/5">
           <img
             src="/images/hero-product.png"
             alt="Sync Labs lip-sync dashboard"
             class="w-full h-auto"
             loading="eager"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-dark/30 via-transparent to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
         </div>
 
-        <!-- Floating card: before/after -->
-        <div class="absolute -left-4 lg:-left-12 bottom-8 lg:bottom-16 w-48 sm:w-56 lg:w-72 rounded-xl overflow-hidden border border-dark-border/60 shadow-xl shadow-dark/60 hero-card-left">
+        <!-- Floating card: Input Image Example -->
+        <div class="absolute -left-4 lg:-left-12 bottom-8 lg:bottom-16 w-48 sm:w-56 lg:w-72 rounded-xl overflow-hidden border border-border shadow-xl shadow-black/60 hero-card-left">
           <img
-            src="/images/hero-before-after.png"
-            alt="Before and after lip sync comparison"
+            src="/images/input-image-1.png"
+            alt="Input image example for lip sync"
             class="w-full h-auto"
             loading="eager"
           />
-          <div class="absolute bottom-0 left-0 right-0 px-3 py-2 bg-gradient-to-t from-dark/90 to-transparent">
+          <div class="absolute bottom-0 left-0 right-0 px-3 py-2 bg-gradient-to-t from-black/90 to-transparent">
             <div class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              <span class="text-[10px] sm:text-xs text-light-text/70 font-medium">Before → After</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-cream"></span>
+              <span class="text-[10px] sm:text-xs text-silver/70 font-medium">Input Image</span>
             </div>
           </div>
         </div>
 
-        <!-- Floating card: multi-language -->
-        <div class="absolute -right-4 lg:-right-12 top-8 lg:top-16 w-40 sm:w-48 lg:w-60 rounded-xl overflow-hidden border border-dark-border/60 shadow-xl shadow-dark/60 hero-card-right">
+        <!-- Floating card: Input Image 2 -->
+        <div class="absolute -right-4 lg:-right-12 top-8 lg:top-16 w-40 sm:w-48 lg:w-60 rounded-xl overflow-hidden border border-border shadow-xl shadow-black/60 hero-card-right">
           <img
-            src="/images/hero-languages.png"
-            alt="Multi-language lip sync support"
+            src="/images/input-image-2.png"
+            alt="Second input image example"
             class="w-full h-auto"
             loading="eager"
           />
-          <div class="absolute bottom-0 left-0 right-0 px-3 py-2 bg-gradient-to-t from-dark/90 to-transparent">
+          <div class="absolute bottom-0 left-0 right-0 px-3 py-2 bg-gradient-to-t from-black/90 to-transparent">
             <div class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-              <span class="text-[10px] sm:text-xs text-light-text/70 font-medium">30+ Languages</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-cream"></span>
+              <span class="text-[10px] sm:text-xs text-silver/70 font-medium">Input Example</span>
             </div>
           </div>
         </div>

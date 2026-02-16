@@ -4,28 +4,21 @@ const footerLinks = {
     { label: 'Features', href: '#features' },
     { label: 'How It Works', href: '#how-it-works' },
     { label: 'Pricing', href: '#pricing' },
-    { label: 'API Docs', href: '#' },
-    { label: 'Changelog', href: '#' },
   ],
   'Use Cases': [
     { label: 'AI Avatars', href: '#use-cases' },
     { label: 'Localization', href: '#use-cases' },
     { label: 'Marketing', href: '#use-cases' },
-    { label: 'Creator Tools', href: '#use-cases' },
-    { label: 'Personalization', href: '#use-cases' },
+    { label: 'Training', href: '#use-cases' },
+    { label: 'Social Media', href: '#use-cases' },
   ],
   Company: [
     { label: 'About', href: '#' },
-    { label: 'Blog', href: '#' },
-    { label: 'Careers', href: '#' },
-    { label: 'Contact', href: '#' },
-    { label: 'Press Kit', href: '#' },
+    { label: 'Contact', href: 'mailto:info@synclabs.studio' },
   ],
   Legal: [
     { label: 'Privacy Policy', href: '#' },
     { label: 'Terms of Service', href: '#' },
-    { label: 'Cookie Policy', href: '#' },
-    { label: 'Responsible AI', href: '#' },
   ],
 };
 ---
@@ -38,28 +31,20 @@ const footerLinks = {
         <a href="/" class="flex items-center">
           <img src="/synclabs.png" alt="Sync Labs" class="h-12 w-auto" />
         </a>
-        <p class="text-light-text/40 text-sm leading-relaxed max-w-xs">
+        <p class="text-silver/40 text-sm leading-relaxed max-w-xs">
           AI-powered lip sync technology for creators, businesses, and developers. Make any face speak with perfect synchronization.
         </p>
 
-        <!-- Social links -->
-        <div class="flex items-center gap-4">
-          {['Twitter', 'GitHub', 'Discord', 'YouTube'].map((social) => (
-            <a href="#" class="w-10 h-10 rounded-lg bg-dark-surface border border-dark-border flex items-center justify-center text-light-text/40 hover:text-primary-light hover:border-primary/30 transition-all" aria-label={social}>
-              <span class="text-xs font-bold">{social[0]}</span>
-            </a>
-          ))}
-        </div>
       </div>
 
       <!-- Link columns -->
       {Object.entries(footerLinks).map(([category, links]) => (
         <div>
-          <h4 class="text-sm font-semibold text-white mb-4">{category}</h4>
+          <h4 class="text-sm font-semibold text-cream mb-4">{category}</h4>
           <ul class="space-y-3">
             {links.map((link) => (
               <li>
-                <a href={link.href} class="text-sm text-light-text/40 hover:text-primary-light transition-colors">
+                <a href={link.href} class="text-sm text-silver/40 hover:text-cream transition-colors">
                   {link.label}
                 </a>
               </li>
@@ -71,11 +56,8 @@ const footerLinks = {
 
     <!-- Bottom bar -->
     <div class="mt-16 pt-8 border-t border-dark-border flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-sm text-light-text/30">
+      <p class="text-sm text-silver/30">
         &copy; {new Date().getFullYear()} Sync Labs. All rights reserved.
-      </p>
-      <p class="text-sm text-light-text/30">
-       Powered by Sync Labs
       </p>
     </div>
   </div>

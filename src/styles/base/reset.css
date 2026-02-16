@@ -1,0 +1,43 @@
+/* Base Reset and Global Styles */
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: var(--leading-normal);
+}
+
+/* Section spacing */
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Smooth transitions for interactive elements */
+a,
+button {
+    transition: all 0.3s ease;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+    outline: 2px solid var(--color-accent-primary);
+    outline-offset: 2px;
+}
+
+/* Selection color */
+::selection {
+    background-color: var(--color-accent-primary);
+    color: var(--color-text-inverse);
+}
+
+::-moz-selection {
+    background-color: var(--color-accent-primary);
+    color: var(--color-text-inverse);
+}

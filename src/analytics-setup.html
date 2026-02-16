@@ -1,0 +1,230 @@
+<!-- 
+  Analytics Tracking Setup Guide
+  
+  This file contains the tracking events you should implement for conversion optimization.
+  Add these event tracking calls to your analytics platform (Google Analytics, Mixpanel, etc.)
+-->
+
+<!-- Google Analytics 4 Example Implementation -->
+<script>
+  // Initialize GA4 (replace G-XXXXXXXXXX with your actual Measurement ID)
+  // Add this to your Layout.astro <head> section:
+  /*
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  */
+
+  // Event Tracking Functions
+  // Add these to a global analytics.js file or inline in Layout.astro
+
+  // 1. Track CTA Clicks
+  document.querySelectorAll('a[href="#pricing"], .btn-primary').forEach(button => {
+    button.addEventListener('click', function(e) {
+      const buttonText = this.textContent.trim();
+      const location = this.closest('section')?.id || 'unknown';
+      
+      // GA4
+      gtag('event', 'cta_click', {
+        button_text: buttonText,
+        location: location,
+        event_category: 'engagement',
+        event_label: `CTA: ${buttonText} - ${location}`
+      });
+    });
+  });
+
+  // 2. Track Scroll Depth
+  let scrollDepths = [25, 50, 75, 100];
+  let scrollTracked = [];
+
+  window.addEventListener('scroll', function() {
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    
+    scrollDepths.forEach(depth => {
+      if (scrollPercent >= depth && !scrollTracked.includes(depth)) {
+        scrollTracked.push(depth);
+        
+        // GA4
+        gtag('event', 'scroll_depth', {
+          percent: depth,
+          event_category: 'engagement',
+          event_label: `Scroll Depth: ${depth}%`
+        });
+      }
+    });
+  });
+
+  // 3. Track Section Views (Intersection Observer)
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const sectionId = entry.target.id;
+        
+        // GA4
+        gtag('event', 'section_view', {
+          section_name: sectionId,
+          event_category: 'engagement',
+          event_label: `Section Viewed: ${sectionId}`
+        });
+        
+        // Unobserve after first view
+        sectionObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  // Observe all major sections
+  document.querySelectorAll('section[id]').forEach(section => {
+    sectionObserver.observe(section);
+  });
+
+  // 4. Track Pricing Plan Selection
+  document.querySelectorAll('#pricing a').forEach(button => {
+    button.addEventListener('click', function(e) {
+      const planCard = this.closest('.relative');
+      const planName = planCard.querySelector('h3')?.textContent || 'Unknown';
+      
+      // GA4
+      gtag('event', 'pricing_plan_click', {
+        plan_name: planName,
+        event_category: 'conversion',
+        event_label: `Plan Selected: ${planName}`
+      });
+    });
+  });
+
+  // 5. Track FAQ Interactions (if you add accordion functionality)
+  document.querySelectorAll('#faq .gradient-border').forEach(faqItem => {
+    faqItem.addEventListener('click', function() {
+      const question = this.querySelector('h4')?.textContent || 'Unknown';
+      
+      // GA4
+      gtag('event', 'faq_click', {
+        question: question,
+        event_category: 'engagement',
+        event_label: `FAQ: ${question}`
+      });
+    });
+  });
+
+  // 6. Track Video/Demo Interactions
+  document.querySelectorAll('a[href="#how-it-works"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      // GA4
+      gtag('event', 'demo_click', {
+        event_category: 'engagement',
+        event_label: 'Watch Demo Button'
+      });
+    });
+  });
+
+  // 7. Track Comparison Table Views
+  const comparisonObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // GA4
+        gtag('event', 'comparison_view', {
+          event_category: 'engagement',
+          event_label: 'Comparison Table Viewed'
+        });
+        
+        comparisonObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const comparisonSection = document.querySelector('#comparison');
+  if (comparisonSection) {
+    comparisonObserver.observe(comparisonSection);
+  }
+
+  // 8. Track Time on Page
+  let startTime = Date.now();
+  
+  window.addEventListener('beforeunload', function() {
+    const timeSpent = Math.round((Date.now() - startTime) / 1000);
+    
+    // GA4
+    gtag('event', 'time_on_page', {
+      value: timeSpent,
+      event_category: 'engagement',
+      event_label: `Time on Page: ${timeSpent}s`
+    });
+  });
+
+  // 9. Track External Link Clicks
+  document.querySelectorAll('a[href^="http"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const url = this.href;
+      
+      // GA4
+      gtag('event', 'external_link_click', {
+        link_url: url,
+        event_category: 'engagement',
+        event_label: `External Link: ${url}`
+      });
+    });
+  });
+
+  // 10. Track Form Submissions (if you add email capture)
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+      const formId = this.id || 'unknown';
+      
+      // GA4
+      gtag('event', 'form_submit', {
+        form_id: formId,
+        event_category: 'conversion',
+        event_label: `Form Submitted: ${formId}`
+      });
+    });
+  });
+</script>
+
+<!-- 
+  CONVERSION FUNNELS TO SET UP IN GA4:
+  
+  Funnel 1: Main Conversion Flow
+  1. Landing Page View
+  2. Features Section View
+  3. Pricing Section View
+  4. CTA Click
+  5. Signup Started
+  6. Signup Completed
+  
+  Funnel 2: Demo-Driven Conversion
+  1. Landing Page View
+  2. Demo Click
+  3. How It Works View
+  4. Pricing Section View
+  5. CTA Click
+  6. Signup Started
+  7. Signup Completed
+  
+  Funnel 3: Comparison-Driven Conversion
+  1. Landing Page View
+  2. Comparison Table View
+  3. Pricing Section View
+  4. Plan Selection
+  5. Signup Started
+  6. Signup Completed
+-->
+
+<!-- 
+  KEY METRICS TO MONITOR:
+  
+  - Bounce Rate (target: < 50%)
+  - Average Time on Page (target: > 3 minutes)
+  - Scroll Depth (% reaching bottom)
+  - CTA Click Rate (target: > 10%)
+  - Pricing Page View Rate (target: > 40%)
+  - Demo Engagement Rate (target: > 30%)
+  - FAQ Interaction Rate
+  - Comparison Table View Rate
+  - Conversion Rate (target: 2-5%)
+-->
