@@ -1,0 +1,22 @@
+---
+const { icon, title, description, gradient, spotlightColor } = Astro.props;
+---
+
+<div class="group relative">
+  <div class="relative h-full p-8 rounded-2xl bg-surface border border-border hover:border-border-light transition-all duration-300">
+    <!-- Icon -->
+    <div class={`w-14 h-14 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center text-black mb-6`}>
+      <Fragment set:html={icon} />
+    </div>
+
+    <!-- Content -->
+    <h3 class="text-xl font-bold text-cream mb-3">{title}</h3>
+    <p class="text-silver/70 leading-relaxed">{description}</p>
+
+    <!-- Hover glow effect -->
+    <div 
+      class="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+      style={`background: radial-gradient(circle at 50% 0%, ${spotlightColor}, transparent 70%);`}
+    ></div>
+  </div>
+</div>

@@ -5,29 +5,28 @@ import Magnet from './ui/Magnet';
 import RevealText from './ui/RevealText';
 ---
 
-<section class="relative py-24 lg:py-32">
+<section class="relative py-12 lg:py-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <ClickSpark client:visible sparkColor="#2bf8d4" sparkCount={12} sparkRadius={25} duration={500}>
+    <ClickSpark client:visible sparkColor="#F2E9E4" sparkCount={12} sparkRadius={25} duration={500}>
       <div class="relative rounded-3xl overflow-hidden">
         <!-- Background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-dark-card"></div>
-        <div class="absolute inset-0 grid-bg opacity-20"></div>
-        <div class="absolute top-0 right-0 w-96 h-96 bg-secondary/20 rounded-full blur-[128px]"></div>
-        <div class="absolute bottom-0 left-0 w-80 h-80 bg-primary-light/20 rounded-full blur-[128px]"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-charcoal via-gray to-surface"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-silver/20 rounded-full blur-[128px]"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-cream/20 rounded-full blur-[128px]"></div>
 
         <div class="relative z-10 py-16 lg:py-24 px-6 lg:px-16 text-center">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight max-w-3xl mx-auto mb-6">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cream leading-tight max-w-3xl mx-auto mb-6">
             <RevealText client:visible mode="auto" stagger={0.1} className="inline">
-              Ready to Make Your Content
+              Ready to Transform Your Content with
             </RevealText>
-            <span class="text-secondary-light"> Come Alive?</span>
+            <span class="text-silver">AI Lip Sync?</span>
           </h2>
 
-          <p class="text-lg text-white/70 max-w-2xl mx-auto mb-10">
-            Join 10,000+ creators and businesses using Sync Labs to produce professional lip-synced videos. Start for free — no credit card required.
+          <p class="text-lg text-cream/70 max-w-2xl mx-auto mb-10">
+            Upload a video, add your audio, and get a lip-synced result in minutes. 3 free videos included — no credit card required.
           </p>
 
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div class="flex flex-col items-center justify-center gap-4">
             <Magnet client:visible padding={60} magnetStrength={3}>
               <AnimatedButton
                 client:visible
@@ -45,23 +44,6 @@ import RevealText from './ui/RevealText';
                 </svg>
               </AnimatedButton>
             </Magnet>
-            <a href="#" class="btn-secondary !border-white/20 !text-white hover:!bg-white/10 text-base">
-              Schedule a Demo
-            </a>
-          </div>
-
-          <!-- Trust badges -->
-          <div class="flex flex-wrap items-center justify-center gap-8 mt-12 pt-8 border-t border-white/10">
-            {[
-              { label: "SOC 2 Certified", icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>` },
-              { label: "GDPR Compliant", icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>` },
-              { label: "99.9% Uptime", icon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>` },
-            ].map((badge) => (
-              <div class="flex items-center gap-2 text-white/60 text-sm">
-                <Fragment set:html={badge.icon} />
-                {badge.label}
-              </div>
-            ))}
           </div>
         </div>
       </div>

@@ -1,0 +1,47 @@
+/* Card Component Styles */
+
+.card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border-color: var(--color-border-light);
+    box-shadow: var(--glow-base);
+}
+
+.card-elevated {
+    background: var(--color-surface-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-md);
+}
+
+.card-elevated:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg), var(--glow-md);
+}
+
+/* Gradient Border Card */
+.gradient-border {
+    position: relative;
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: var(--radius-xl);
+    padding: 1px;
+    background: var(--gradient-primary);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}

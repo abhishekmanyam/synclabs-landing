@@ -1,0 +1,46 @@
+/* Background Pattern Utilities */
+
+/* Grid Background */
+.grid-bg {
+    background-image:
+        linear-gradient(var(--color-overlay-light) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-overlay-light) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+.grid-bg-sm {
+    background-image:
+        linear-gradient(var(--color-overlay-light) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-overlay-light) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.grid-bg-lg {
+    background-image:
+        linear-gradient(var(--color-overlay-light) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-overlay-light) 1px, transparent 1px);
+    background-size: 100px 100px;
+}
+
+/* Dot Pattern */
+.dot-pattern {
+    background-image: radial-gradient(var(--color-overlay-medium) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Radial Gradient Orb */
+.radial-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.radial-orb-cream {
+    background: radial-gradient(circle, var(--color-cream) 0%, transparent 70%);
+}
+
+.radial-orb-silver {
+    background: radial-gradient(circle, var(--color-silver) 0%, transparent 70%);
+}

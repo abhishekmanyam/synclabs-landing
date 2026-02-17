@@ -1,0 +1,27 @@
+/* Gradient Utilities */
+
+.gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-text-subtle {
+    background: linear-gradient(135deg, var(--color-text-primary), var(--color-text-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-bg-primary {
+    background: var(--gradient-primary);
+}
+
+.gradient-bg-surface {
+    background: var(--gradient-surface);
+}
+
+.gradient-bg-accent {
+    background: var(--gradient-accent);
+}

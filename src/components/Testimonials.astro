@@ -4,32 +4,32 @@ import SpotlightCard from './ui/SpotlightCard';
 
 const testimonials = [
   {
-    quote: "Sync Labs saved us $200K in dubbing costs. We localized our entire course library into 12 languages in a weekend.",
-    name: "Sarah Chen",
-    title: "VP of Content, EduTech Global",
-    avatar: "SC",
+    quote: "Finally a lip sync tool that just works. I uploaded a 20-second clip, added my translated audio, and had a perfect result in under 3 minutes. The mouth movements looked completely natural.",
+    name: "Early Access User",
+    title: "Content Creator",
+    avatar: "EA",
   },
   {
-    quote: "The lip sync quality is indistinguishable from real video. Our AI influencer campaign hit 50M views in the first month.",
-    name: "Marcus Rivera",
-    title: "Creative Director, Viral Studio",
-    avatar: "MR",
+    quote: "I've tried several AI dubbing tools and Sync Labs is by far the cleanest output. The Whisper integration means I don't have to manually transcribe anything — it figures out the language automatically.",
+    name: "Beta Tester",
+    title: "E-Learning Producer",
+    avatar: "BT",
   },
   {
-    quote: "We replaced our entire video ad production pipeline with Sync Labs. 10x faster, fraction of the cost, and the quality is stunning.",
-    name: "Priya Patel",
-    title: "Head of Growth, ScaleUp AI",
-    avatar: "PP",
+    quote: "The free tier is genuinely useful — 3 full videos to test the quality before committing. Processing was fast and the output quality was solid. Looking forward to the Pro plan launching.",
+    name: "Beta Tester",
+    title: "Video Marketer",
+    avatar: "BT",
   },
 ];
 ---
 
-<section class="relative py-24 lg:py-32">
+<section class="relative py-12 lg:py-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="inline-block text-sm font-semibold text-secondary uppercase tracking-widest mb-4">Testimonials</span>
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+      <span class="inline-block text-sm font-semibold text-silver uppercase tracking-widest mb-4">Testimonials</span>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cream leading-tight">
         <RevealText client:visible mode="auto" stagger={0.12} className="inline">
           Loved by Creators Worldwide
         </RevealText>
@@ -53,17 +53,17 @@ const testimonials = [
             ))}
           </div>
 
-          <blockquote class="text-light-text/70 leading-relaxed flex-1 mb-6">
+          <blockquote class="text-silver/70 leading-relaxed flex-1 mb-6">
             "{testimonial.quote}"
           </blockquote>
 
           <div class="flex items-center gap-3 pt-4 border-t border-dark-border">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-sm font-bold text-white">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-sm font-bold text-cream">
               {testimonial.avatar}
             </div>
             <div>
-              <p class="font-semibold text-white text-sm">{testimonial.name}</p>
-              <p class="text-xs text-light-text/40">{testimonial.title}</p>
+              <p class="font-semibold text-cream text-sm">{testimonial.name}</p>
+              <p class="text-xs text-silver/40">{testimonial.title}</p>
             </div>
           </div>
         </SpotlightCard>

@@ -1,0 +1,63 @@
+/* Visual Effects Utilities */
+
+/* Glow Effects */
+.glow-sm {
+    box-shadow: var(--glow-sm);
+}
+
+.glow-base {
+    box-shadow: var(--glow-base);
+}
+
+.glow-md {
+    box-shadow: var(--glow-md);
+}
+
+.glow-lg {
+    box-shadow: var(--glow-lg);
+}
+
+/* Blur Effects */
+.blur-sm {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.blur-base {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.blur-md {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.blur-lg {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+/* Noise Overlay */
+.noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Overlay Utilities */
+.overlay-light {
+    background: var(--color-overlay-light);
+}
+
+.overlay-medium {
+    background: var(--color-overlay-medium);
+}
+
+.overlay-heavy {
+    background: var(--color-overlay-heavy);
+}

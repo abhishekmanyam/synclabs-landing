@@ -1,0 +1,43 @@
+/* Color Palette - Sophisticated Neutral Theme */
+
+@theme {
+  /* Primary Palette - Warm Neutrals */
+  --color-cream: #F2E9E4;
+  --color-charcoal: #595654;
+  --color-gray: #8C8987;
+  --color-silver: #BFBCBA;
+  --color-black: #0D0D0D;
+  
+  /* Semantic Colors */
+  --color-background: #0D0D0D;
+  --color-surface: #1a1918;
+  --color-surface-elevated: #242220;
+  --color-border: #595654;
+  --color-border-light: #8C8987;
+  
+  /* Text Colors */
+  --color-text-primary: #F2E9E4;
+  --color-text-secondary: #BFBCBA;
+  --color-text-tertiary: #8C8987;
+  --color-text-inverse: #0D0D0D;
+  
+  /* Accent Colors - Derived from palette */
+  --color-accent-primary: #F2E9E4;
+  --color-accent-hover: #ffffff;
+  --color-accent-muted: #BFBCBA;
+  
+  /* Interactive States */
+  --color-hover: rgba(242, 233, 228, 0.1);
+  --color-active: rgba(242, 233, 228, 0.15);
+  --color-focus: rgba(242, 233, 228, 0.2);
+  
+  /* Overlays */
+  --color-overlay-light: rgba(242, 233, 228, 0.05);
+  --color-overlay-medium: rgba(242, 233, 228, 0.1);
+  --color-overlay-heavy: rgba(242, 233, 228, 0.15);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #F2E9E4 0%, #BFBCBA 100%);
+  --gradient-surface: linear-gradient(180deg, #1a1918 0%, #0D0D0D 100%);
+  --gradient-accent: linear-gradient(135deg, rgba(242, 233, 228, 0.1) 0%, rgba(191, 187, 186, 0.05) 100%);
+}

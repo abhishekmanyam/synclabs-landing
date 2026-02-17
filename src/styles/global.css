@@ -1,181 +1,377 @@
 @import "tailwindcss";
 
+/* ============================================
+   COLOR PALETTE - Sophisticated Neutral Theme
+   ============================================ */
+
 @theme {
-  --color-primary: #2bf8d4;
-  --color-primary-light: #5ffae1;
-  --color-primary-dark: #1cc4a8;
-  --color-secondary: #2bf8d4;
-  --color-secondary-light: #7dfceb;
-  --color-accent: #2bf8d4;
-  --color-dark: #0D1E30;
-  --color-dark-card: #122a40;
-  --color-dark-surface: #163350;
-  --color-dark-border: #1e3d5c;
-  --color-light-text: #d0e8f2;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    /* Primary Palette - Warm Neutrals */
+    --color-cream: #F2E9E4;
+    --color-charcoal: #595654;
+    --color-gray: #8C8987;
+    --color-silver: #BFBCBA;
+    --color-black: #0a1c30;
+
+    /* Semantic Colors */
+    --color-background: #0a1c30;
+    --color-surface: #0f2540;
+    --color-surface-elevated: #163050;
+    --color-border: #595654;
+    --color-border-light: #8C8987;
+
+    /* Text Colors */
+    --color-text-primary: #F2E9E4;
+    --color-text-secondary: #BFBCBA;
+    --color-text-tertiary: #8C8987;
+    --color-text-inverse: #0D0D0D;
+
+    /* Accent Colors */
+    --color-accent-primary: #F2E9E4;
+    --color-accent-hover: #ffffff;
+    --color-accent-muted: #BFBCBA;
+
+    /* Interactive States */
+    --color-hover: rgba(242, 233, 228, 0.1);
+    --color-active: rgba(242, 233, 228, 0.15);
+    --color-focus: rgba(242, 233, 228, 0.2);
+
+    /* Overlays */
+    --color-overlay-light: rgba(242, 233, 228, 0.05);
+    --color-overlay-medium: rgba(242, 233, 228, 0.1);
+    --color-overlay-heavy: rgba(242, 233, 228, 0.15);
+
+    /* Typography */
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+    /* Spacing */
+    --space-0: 0;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    --space-32: 8rem;
+
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-base: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    --radius-2xl: 2rem;
+    --radius-full: 9999px;
 }
 
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: var(--font-sans);
-  background-color: var(--color-dark);
-  color: var(--color-light-text);
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.5;
 }
 
-/* Gradient text utility */
-.gradient-text {
-  background: linear-gradient(135deg, var(--color-primary), #ffffff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+section {
+    position: relative;
+    overflow: hidden;
 }
 
-/* Glow effects */
-.glow-purple {
-  box-shadow: 0 0 40px rgba(43, 248, 212, 0.25), 0 0 80px rgba(43, 248, 212, 0.08);
+a,
+button {
+    transition: all 0.3s ease;
 }
 
-.glow-cyan {
-  box-shadow: 0 0 40px rgba(43, 248, 212, 0.25), 0 0 80px rgba(43, 248, 212, 0.08);
+*:focus-visible {
+    outline: 2px solid var(--color-accent-primary);
+    outline-offset: 2px;
 }
 
-/* Animated gradient border */
-.gradient-border {
-  position: relative;
-  background: var(--color-dark-card);
-  border-radius: 1rem;
+::selection {
+    background-color: var(--color-accent-primary);
+    color: var(--color-text-inverse);
 }
 
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 1rem;
-  padding: 1px;
-  background: linear-gradient(135deg, var(--color-primary), #1e3d5c);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
+::-moz-selection {
+    background-color: var(--color-accent-primary);
+    color: var(--color-text-inverse);
 }
 
-/* Noise texture overlay */
-.noise-overlay::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 4px;
 }
 
-/* Grid background pattern */
-.grid-bg {
-  background-image:
-    linear-gradient(rgba(43, 248, 212, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(43, 248, 212, 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
+::-webkit-scrollbar-track {
+    background: var(--color-background);
 }
 
-/* Smooth fade-in animation */
+::-webkit-scrollbar-thumb {
+    background: var(--color-charcoal);
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-silver);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
-.animation-delay-200 {
-  animation-delay: 0.2s;
-  opacity: 0;
-}
-
-.animation-delay-400 {
-  animation-delay: 0.4s;
-  opacity: 0;
-}
-
-.animation-delay-600 {
-  animation-delay: 0.6s;
-  opacity: 0;
-}
-
-/* Floating animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
 }
 
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
 }
 
-/* Pulse glow */
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
+    animation: pulseGlow 3s ease-in-out infinite;
 }
 
-/* Section spacing */
-section {
-  position: relative;
-  overflow: hidden;
+.animation-delay-200 {
+    animation-delay: 0.2s;
+    opacity: 0;
 }
 
-/* Button styles */
+.animation-delay-400 {
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+.animation-delay-600 {
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+/* ============================================
+   BUTTON COMPONENTS
+   ============================================ */
+
 .btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  background: linear-gradient(135deg, #2bf8d4, #1cc4a8);
-  color: #0D1E30;
-  font-weight: 600;
-  border-radius: 0.75rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-  font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-8);
+    background: linear-gradient(135deg, #F2E9E4 0%, #BFBCBA 100%);
+    color: var(--color-text-inverse);
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    text-decoration: none;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 40px rgba(43, 248, 212, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(242, 233, 228, 0.25), 0 0 80px rgba(242, 233, 228, 0.1);
 }
 
 .btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  background: transparent;
-  color: var(--color-light-text);
-  font-weight: 600;
-  border-radius: 0.75rem;
-  border: 1px solid var(--color-dark-border);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-8);
+    background: transparent;
+    color: var(--color-text-primary);
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
 }
 
 .btn-secondary:hover {
-  border-color: var(--color-primary);
-  background: rgba(43, 248, 212, 0.08);
-  transform: translateY(-2px);
+    border-color: var(--color-accent-primary);
+    background: var(--color-hover);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-8);
+    background: transparent;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-light);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.btn-outline:hover {
+    color: var(--color-text-primary);
+    border-color: var(--color-accent-primary);
+    background: var(--color-hover);
+}
+
+/* ============================================
+   CARD COMPONENTS
+   ============================================ */
+
+.card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border-color: var(--color-border-light);
+    box-shadow: 0 0 20px rgba(242, 233, 228, 0.15);
+}
+
+.gradient-border {
+    position: relative;
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: var(--radius-xl);
+    padding: 1px;
+    background: linear-gradient(135deg, #F2E9E4 0%, #BFBCBA 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(135deg, #F2E9E4 0%, #BFBCBA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Glow Effects */
+.glow-sm {
+    box-shadow: 0 0 10px rgba(242, 233, 228, 0.1);
+}
+
+.glow-base {
+    box-shadow: 0 0 20px rgba(242, 233, 228, 0.15);
+}
+
+.glow-lg {
+    box-shadow: 0 0 40px rgba(242, 233, 228, 0.25), 0 0 80px rgba(242, 233, 228, 0.1);
+}
+
+/* Grid Background */
+.grid-bg {
+    background-image:
+        linear-gradient(rgba(242, 233, 228, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(242, 233, 228, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+/* Noise Overlay */
+.noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
 }

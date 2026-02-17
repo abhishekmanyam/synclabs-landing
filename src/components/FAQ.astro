@@ -1,0 +1,115 @@
+---
+const faqs = [
+  {
+    category: "Getting Started",
+    questions: [
+      {
+        q: "What file formats do you support?",
+        a: "We support MP4, MOV, AVI, FLV, and MKV for videos. Audio files can be any FFmpeg-readable format (MP3, WAV, M4A, AAC, etc.) - they're automatically normalized to optimal quality."
+      },
+      {
+        q: "What's included in the free tier?",
+        a: "You get 3 free videos, each up to 30 seconds long. Maximum file size is 200 MB per upload. No credit card required to start."
+      },
+      {
+        q: "How long does processing take?",
+        a: "Most videos complete in 2-3 minutes depending on length and complexity. We use GPU-accelerated processing on NVIDIA Tesla V100 for fast results."
+      }
+    ]
+  },
+  {
+    category: "Quality & Features",
+    questions: [
+      {
+        q: "What languages are supported?",
+        a: "We support multiple languages with automatic language detection. The lip sync technology works with any language, making it perfect for global content creation and localization."
+      },
+      {
+        q: "Can I use the videos commercially?",
+        a: "Yes! Videos created with Sync Labs can be used for commercial purposes. Please check our terms of service for specific usage guidelines and any restrictions."
+      },
+      {
+        q: "What resolution are the output videos?",
+        a: "Output videos maintain the resolution of your input video. The face region is processed at 256x256 for optimal lip sync quality."
+      },
+      {
+        q: "Can I adjust the lip sync parameters?",
+        a: "Yes! Advanced users can adjust bbox_shift, extra_margin, parsing mode, and cheek widths for fine-tuned results on different face types."
+      }
+    ]
+  },
+  {
+    category: "Storage & Privacy",
+    questions: [
+      {
+        q: "How long are my videos stored?",
+        a: "Output videos are retained for 7 days, then automatically deleted. Input files are removed immediately after processing for your privacy."
+      },
+      {
+        q: "Is my data used for training?",
+        a: "No. Your uploaded videos and generated outputs are never used for model training or any other purpose without your explicit consent."
+      },
+      {
+        q: "Where are videos processed?",
+        a: "Videos are processed securely on enterprise-grade GPU infrastructure with cloud storage. All processing happens in secure data centers with industry-standard security practices."
+      }
+    ]
+  },
+  {
+    category: "Paid Plans",
+    questions: [
+      {
+        q: "When will paid plans be available?",
+        a: "We're working on Pro and Enterprise plans with longer video limits, more monthly credits, priority processing, and API access. Stay tuned for updates!"
+      },
+      {
+        q: "Will there be an API?",
+        a: "Yes! API access with SDKs and webhooks is planned for paid tiers. This will enable programmatic access and integration into your workflows."
+      },
+      {
+        q: "Can I get more than 3 free videos?",
+        a: "Currently, the free tier is limited to 3 videos. Paid plans with higher limits are coming soon. Sign up to be notified when they launch!"
+      }
+    ]
+  }
+];
+---
+
+<section id="faq" class="relative py-12 lg:py-16 overflow-hidden">
+  <div class="container-custom relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cream mb-4">
+        Frequently Asked Questions
+      </h2>
+      <p class="text-lg text-silver/70 max-w-2xl mx-auto">
+        Everything you need to know about Sync Labs
+      </p>
+    </div>
+
+    <!-- FAQ Grid -->
+    <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      {faqs.map((category) => (
+        <div>
+          <h3 class="text-xl font-bold text-cream mb-6">{category.category}</h3>
+          <div class="space-y-6">
+            {category.questions.map((faq) => (
+              <div class="gradient-border p-6 rounded-lg bg-dark-lighter/50">
+                <h4 class="text-lg font-semibold text-cream mb-3">{faq.q}</h4>
+                <p class="text-silver/70 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Contact -->
+    <div class="mt-16 text-center">
+      <p class="text-silver/70 mb-4">Still have questions?</p>
+      <a href="mailto:info@synclabs.studio" class="text-cream hover:text-cream underline text-lg">
+        info@synclabs.studio
+      </a>
+    </div>
+  </div>
+</section>
