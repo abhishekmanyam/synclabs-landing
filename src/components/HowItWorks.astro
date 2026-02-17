@@ -1,21 +1,20 @@
 ---
-import RevealText from './ui/RevealText';
 
 const steps = [
   {
-    number: "01",
+
     title: "Upload Your Video",
     description: "Start by uploading any video file with a visible face. Our platform supports multiple formats including MP4, MOV, AVI, and more. The video can be a selfie, professional recording, or any existing footage.",
     icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>`,
   },
   {
-    number: "02",
+
     title: "Add Your Audio",
     description: "Upload the audio you want to sync with your video. This can be in any language - our AI automatically detects the language and analyzes the speech patterns, timing, and phonetics to ensure perfect synchronization.",
     icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>`,
   },
   {
-    number: "03",
+
     title: "Get Your Synced Video",
     description: "Our AI processes your video and creates perfectly synchronized lip movements that match your audio. In just 2-3 minutes, you'll have a professional-quality video ready to download and share across any platform.",
     icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>`,
@@ -30,17 +29,11 @@ const steps = [
   <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cream/5 rounded-full blur-[200px]"></div>
 
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section header with RevealText -->
+    <!-- Section header -->
     <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
-      <span class="inline-block text-sm font-semibold text-silver uppercase tracking-widest mb-4">How It Works</span>
       <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cream leading-tight">
-        <RevealText client:visible mode="auto" stagger={0.12} className="inline">
-          Three Simple Steps
-        </RevealText>
+        How It Works
       </h2>
-      <p class="mt-6 text-lg text-silver/70 max-w-2xl mx-auto">
-        No video editing skills required. Our AI handles everything — you just upload your content and let us do the rest.
-      </p>
     </div>
 
     <!-- Steps -->
@@ -52,7 +45,6 @@ const steps = [
               <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cream to-silver flex items-center justify-center text-black">
                 <Fragment set:html={step.icon} />
               </div>
-              <span class="text-6xl font-black text-border">{step.number}</span>
             </div>
             <h3 class="text-xl font-bold text-cream mb-3">{step.title}</h3>
             <p class="text-silver/70 leading-relaxed">{step.description}</p>
@@ -66,44 +58,94 @@ const steps = [
       ))}
     </div>
 
-    <!-- Video Demonstration Section -->
+    <!-- Avatar Showcase Section -->
     <div class="mb-24">
       <div class="text-center max-w-3xl mx-auto mb-12">
         <h3 class="text-3xl sm:text-4xl font-extrabold text-cream leading-tight mb-6">
-          Avatars
+          Meet our V1 Avatars
         </h3>
         <p class="text-lg text-silver/70">
           Watch how our AI transforms input videos with perfect lip synchronization.
         </p>
       </div>
 
-      <!-- Video Grid - Pill Style -->
-      <div class="flex flex-col sm:flex-row items-end gap-6 max-w-6xl mx-auto">
-        <!-- Video 1 - Jessica -->
-        <div class="flex-1 group relative overflow-hidden rounded-3xl bg-surface border border-border hover:border-border-light transition-all duration-300 mt-8">
-          <div class="relative bg-charcoal overflow-hidden" style="aspect-ratio: 16/9;">
+      <!-- Avatar Pills Grid -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 max-w-4xl mx-auto">
+        <!-- Avatar 1 - Jessica -->
+        <div class="avatar-pill group relative overflow-hidden rounded-[2.5rem] bg-surface border border-border hover:border-border-light transition-all duration-300 cursor-pointer hover:scale-[1.02] w-full sm:w-72">
+          <div class="relative bg-charcoal overflow-hidden" style="aspect-ratio: 9/16;">
             <video
-              class="w-full h-full object-contain"
-              controls
+              class="avatar-video w-full h-full object-cover"
+              muted
+              loop
+              playsinline
               preload="metadata"
             >
               <source src="/images/input-video-1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
             </video>
+            <!-- Play icon overlay -->
+            <div class="avatar-play-overlay absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300">
+              <div class="w-16 h-16 rounded-full bg-cream/20 backdrop-blur-sm flex items-center justify-center border border-cream/30">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="text-cream ml-1">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent">
+            <p class="text-cream font-semibold text-lg">Jessica</p>
           </div>
         </div>
 
-        <!-- Video 2 - Michael -->
-        <div class="flex-1 group relative overflow-hidden rounded-3xl bg-surface border border-border hover:border-border-light transition-all duration-300">
-          <div class="relative bg-charcoal overflow-hidden" style="aspect-ratio: 16/9;">
+        <!-- Avatar 2 - Jack -->
+        <div class="avatar-pill group relative overflow-hidden rounded-[2.5rem] bg-surface border border-border hover:border-border-light transition-all duration-300 cursor-pointer hover:scale-[1.02] w-full sm:w-72">
+          <div class="relative bg-charcoal overflow-hidden" style="aspect-ratio: 9/16;">
             <video
-              class="w-full h-full object-contain"
-              controls
+              class="avatar-video w-full h-full object-cover"
+              muted
+              loop
+              playsinline
               preload="metadata"
             >
               <source src="/images/input-video-2.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
             </video>
+            <!-- Play icon overlay -->
+            <div class="avatar-play-overlay absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300">
+              <div class="w-16 h-16 rounded-full bg-cream/20 backdrop-blur-sm flex items-center justify-center border border-cream/30">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="text-cream ml-1">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent">
+            <p class="text-cream font-semibold text-lg">Jack</p>
+          </div>
+        </div>
+
+        <!-- Avatar 3 - Sarah -->
+        <div class="avatar-pill group relative overflow-hidden rounded-[2.5rem] bg-surface border border-border hover:border-border-light transition-all duration-300 cursor-pointer hover:scale-[1.02] w-full sm:w-72">
+          <div class="relative bg-charcoal overflow-hidden" style="aspect-ratio: 9/16;">
+            <video
+              class="avatar-video w-full h-full object-cover"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            >
+              <source src="/images/input-video-3.mp4" type="video/mp4" />
+            </video>
+            <!-- Play icon overlay -->
+            <div class="avatar-play-overlay absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300">
+              <div class="w-16 h-16 rounded-full bg-cream/20 backdrop-blur-sm flex items-center justify-center border border-cream/30">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" class="text-cream ml-1">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent">
+            <p class="text-cream font-semibold text-lg">Sarah</p>
           </div>
         </div>
       </div>
@@ -111,3 +153,23 @@ const steps = [
 
   </div>
 </section>
+
+<script>
+  document.querySelectorAll('.avatar-pill').forEach((pill) => {
+    const video = pill.querySelector('.avatar-video') as HTMLVideoElement;
+    const overlay = pill.querySelector('.avatar-play-overlay') as HTMLElement;
+
+    if (!video || !overlay) return;
+
+    pill.addEventListener('mouseenter', () => {
+      video.play();
+      overlay.style.opacity = '0';
+    });
+
+    pill.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+      overlay.style.opacity = '1';
+    });
+  });
+</script>
