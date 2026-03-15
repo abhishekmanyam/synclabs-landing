@@ -1,7 +1,7 @@
 ---
 const plans = [
   {
-    name: "",
+    name: "Free",
     price: "",
     period: "",
     description: "Perfect for trying out AI lip sync",
@@ -55,23 +55,23 @@ const plans = [
       "Premium support & SLA",
     ],
     cta: "Contact Us",
-    href: "#",
+    href: "mailto:info@synclabs.studio",
     highlighted: false,
-    badge: "Coming Soon",
-    comingSoon: true,
+    badge: "Custom",
+    comingSoon: false,
   },
 ];
 ---
 
-<section id="pricing" class="relative py-12 lg:py-16 overflow-hidden">
-  <div class="container-custom relative z-10">
+<section id="pricing" class="relative py-20 lg:py-28 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <!-- Section Header -->
     <div class="text-center mb-16">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cream mb-4">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cream mb-4" style="text-wrap: balance;">
         Simple, Transparent Pricing
       </h2>
       <p class="text-lg text-silver/70 max-w-2xl mx-auto">
-        Start for free. No credit card required. Paid plans with extended limits coming soon.
+        Start for free. No credit card required.
       </p>
     </div>
 
@@ -81,12 +81,12 @@ const plans = [
         <div class="relative">
           <!-- Badge -->
           <div class="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-            <span class={`px-4 py-1 rounded-full text-sm font-bold whitespace-nowrap ${plan.comingSoon ? 'bg-surface border border-border text-silver' : 'bg-cream text-black'}`}>
+            <span class={`px-4 py-1 rounded-full text-sm font-bold whitespace-nowrap ${plan.badge === 'Custom' ? 'bg-surface border border-border text-silver' : 'bg-cream text-black'}`}>
               {plan.badge}
             </span>
           </div>
 
-          <div class={`relative h-full p-8 rounded-2xl border-2 ${plan.highlighted ? 'border-cream bg-surface' : 'border-border bg-surface/50'} ${plan.comingSoon ? 'opacity-70' : ''}`}>
+          <div class={`relative h-full p-8 rounded-2xl border-2 ${plan.highlighted ? 'border-cream bg-surface' : 'border-border bg-surface/50'}`}>
             <div class="text-center mb-6">
               <h3 class="text-2xl font-bold text-cream mb-2">{plan.name}</h3>
               <div class="flex items-baseline justify-center gap-1 mb-2">
@@ -105,7 +105,7 @@ const plans = [
             <ul class="space-y-3 mb-8">
               {plan.features.map((feature) => (
                 <li class="flex items-start gap-3">
-                  <svg class="w-5 h-5 text-cream flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-5 h-5 text-cream flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <polyline points="20 6 9 17 4 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></polyline>
                   </svg>
                   <span class="text-silver/80">{feature}</span>
@@ -113,14 +113,12 @@ const plans = [
               ))}
             </ul>
 
-            {!plan.comingSoon && (
-              <a
-                href={plan.href}
-                class="block w-full text-center py-3 px-6 rounded-lg font-semibold transition-all bg-cream text-black hover:bg-silver"
-              >
-                {plan.cta}
-              </a>
-            )}
+            <a
+              href={plan.href}
+              class="block w-full text-center py-3 px-6 rounded-lg font-semibold transition-all bg-cream text-black hover:bg-silver"
+            >
+              {plan.cta}
+            </a>
           </div>
         </div>
       ))}

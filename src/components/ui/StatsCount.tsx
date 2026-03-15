@@ -69,7 +69,7 @@ export default function StatsCount({
             <div
               className="text-4xl lg:text-5xl font-extrabold"
               style={{
-                background: "linear-gradient(135deg, #2bf8d4, #ffffff)",
+                background: "linear-gradient(135deg, #F2E9E4, #BFBCBA)",
                 backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -77,10 +77,10 @@ export default function StatsCount({
             >
               <AnimatedNumber value={stat.value} suffix={stat.suffix} duration={stat.duration || 2} />
             </div>
-            <p className="text-sm text-[#d0e8f2]/50 mt-2 max-w-[150px]">{stat.label}</p>
+            <p className="text-sm text-silver/50 mt-2 max-w-[150px]">{stat.label}</p>
           </motion.div>
           {showDividers && i < stats.length - 1 && (
-            <div className="hidden lg:block w-px h-16 bg-gradient-to-b from-transparent via-[#1e3d5c] to-transparent" />
+            <div className="hidden lg:block w-px h-16 bg-gradient-to-b from-transparent via-cream/10 to-transparent" />
           )}
         </div>
       ))}

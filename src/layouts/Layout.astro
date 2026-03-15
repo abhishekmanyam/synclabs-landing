@@ -6,7 +6,7 @@ interface Props {
 
 const {
   title = "Sync Labs - AI Lip Sync Video Generator | Free Trial",
-  description = "Create hyper-realistic lip-synced videos in minutes with AI. Upload video and audio, get perfect lip sync. 3 free videos. No credit card required."
+  description = "Create hyper-realistic lip-synced videos in minutes with AI. Upload video and audio, get perfect lip sync. 1 free video. No credit card required."
 } = Astro.props;
 
 import '../styles/global.css';
@@ -41,7 +41,7 @@ import '../styles/global.css';
     <!-- Additional SEO -->
     <link rel="canonical" href="https://synclabs.ai" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#2bf8d4" />
+    <meta name="theme-color" content="#0a1c30" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,7 +51,7 @@ import '../styles/global.css';
     <link rel="icon" type="image/png" href="/synclabs.png" />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen text-light-text antialiased" style="background-color: #0a1c30;">
+  <body class="min-h-screen text-text-primary antialiased" style="background-color: #0a1c30;">
     <slot />
   </body>
 </html>

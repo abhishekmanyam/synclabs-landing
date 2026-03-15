@@ -54,12 +54,12 @@ const navLinks = [
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="md:hidden hidden bg-dark-card/95 backdrop-blur-xl border-t border-dark-border">
+  <div id="mobile-menu" class="md:hidden hidden bg-surface/95 backdrop-blur-xl border-t border-border">
     <div class="px-4 py-4 space-y-3">
       {navLinks.map(link => (
         <a
           href={link.href}
-          class="block text-sm font-medium text-light-text/70 hover:text-white transition-colors py-2"
+          class="block text-sm font-medium text-silver/70 hover:text-white transition-colors py-2"
         >
           {link.label}
         </a>
@@ -76,9 +76,9 @@ const navLinks = [
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-      navbar?.classList.add('bg-dark/80', 'backdrop-blur-xl');
+      navbar?.classList.add('bg-background/80', 'backdrop-blur-xl');
     } else {
-      navbar?.classList.remove('bg-dark/80', 'backdrop-blur-xl');
+      navbar?.classList.remove('bg-background/80', 'backdrop-blur-xl');
     }
   });
 

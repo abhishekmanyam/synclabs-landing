@@ -9,7 +9,7 @@ const faqs = [
       },
       {
         q: "What's included in the free tier?",
-        a: "You get 3 free videos, each up to 30 seconds long. Maximum file size is 200 MB per upload. No credit card required to start."
+        a: "You get 1 free video, up to 30 seconds long. Maximum file size is 200 MB per upload. No credit card required to start."
       },
       {
         q: "How long does processing take?",
@@ -56,30 +56,30 @@ const faqs = [
     ]
   },
   {
-    category: "Paid Plans",
+    category: "Plans & Pricing",
     questions: [
       {
-        q: "When will paid plans be available?",
-        a: "We're working on Pro and Enterprise plans with longer video limits, more monthly credits, priority processing, and API access. Stay tuned for updates!"
+        q: "What does the Pro plan include?",
+        a: "Pro is $29.99/mo and includes unlimited videos (up to 90 seconds each), priority GPU processing, multi-language support via Whisper, and 30-day output retention."
       },
       {
         q: "Will there be an API?",
         a: "Yes! API access with SDKs and webhooks is planned for paid tiers. This will enable programmatic access and integration into your workflows."
       },
       {
-        q: "Can I get more than 3 free videos?",
-        a: "Currently, the free tier is limited to 3 videos. Paid plans with higher limits are coming soon. Sign up to be notified when they launch!"
+        q: "Can I get more than 1 free video?",
+        a: "The free tier is limited to 1 video. Upgrade to Pro for unlimited videos at $29.99/mo, or contact us for Enterprise pricing."
       }
     ]
   }
 ];
 ---
 
-<section id="faq" class="relative py-12 lg:py-16 overflow-hidden">
-  <div class="container-custom relative z-10">
+<section id="faq" class="relative py-20 lg:py-28 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <!-- Header -->
     <div class="text-center mb-16">
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cream mb-4">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cream mb-4" style="text-wrap: balance;">
         Frequently Asked Questions
       </h2>
       <p class="text-lg text-silver/70 max-w-2xl mx-auto">
@@ -94,7 +94,7 @@ const faqs = [
           <h3 class="text-xl font-bold text-cream mb-6">{category.category}</h3>
           <div class="space-y-6">
             {category.questions.map((faq) => (
-              <div class="gradient-border p-6 rounded-lg bg-dark-lighter/50">
+              <div class="gradient-border p-6 rounded-lg bg-surface/50">
                 <h4 class="text-lg font-semibold text-cream mb-3">{faq.q}</h4>
                 <p class="text-silver/70 leading-relaxed">{faq.a}</p>
               </div>

@@ -5,25 +5,24 @@ import Magnet from './ui/Magnet';
 import RevealText from './ui/RevealText';
 ---
 
-<section class="relative py-12 lg:py-16">
+<section class="relative py-16 lg:py-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <ClickSpark client:visible sparkColor="#F2E9E4" sparkCount={12} sparkRadius={25} duration={500}>
       <div class="relative rounded-3xl overflow-hidden">
         <!-- Background -->
         <div class="absolute inset-0 bg-gradient-to-br from-charcoal via-gray to-surface"></div>
-        <div class="absolute top-0 right-0 w-96 h-96 bg-silver/20 rounded-full blur-[128px]"></div>
-        <div class="absolute bottom-0 left-0 w-80 h-80 bg-cream/20 rounded-full blur-[128px]"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-silver/20 rounded-full blur-[128px]" aria-hidden="true"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-cream/20 rounded-full blur-[128px]" aria-hidden="true"></div>
 
         <div class="relative z-10 py-16 lg:py-24 px-6 lg:px-16 text-center">
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cream leading-tight max-w-3xl mx-auto mb-6">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cream leading-tight max-w-3xl mx-auto mb-6" style="text-wrap: balance;">
             <RevealText client:visible mode="auto" stagger={0.1} className="inline">
-              Ready to Transform Your Content with
+              Your First Video is Free
             </RevealText>
-            <span class="text-silver">AI Lip Sync?</span>
           </h2>
 
           <p class="text-lg text-cream/70 max-w-2xl mx-auto mb-10">
-            Upload a video, add your audio, and get a lip-synced result in minutes. 3 free videos included — no credit card required.
+            Upload a video, add your audio, and get a perfectly lip-synced result in under 3 minutes. No credit card, no commitment.
           </p>
 
           <div class="flex flex-col items-center justify-center gap-4">
@@ -38,7 +37,7 @@ import RevealText from './ui/RevealText';
                 className="!text-[#0D1E30]"
               >
                 <span style="color: #0D1E30">Get Started Free</span>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D1E30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D1E30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
