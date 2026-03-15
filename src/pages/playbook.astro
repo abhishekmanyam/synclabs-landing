@@ -1,0 +1,253 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import BlurText from '../components/ui/BlurText';
+import GradientText from '../components/ui/GradientText';
+import AnimatedButton from '../components/ui/AnimatedButton';
+import Magnet from '../components/ui/Magnet';
+import RevealText from '../components/ui/RevealText';
+import ClickSpark from '../components/ui/ClickSpark';
+import SpotlightCard from '../components/ui/SpotlightCard';
+import StatsCount from '../components/ui/StatsCount';
+
+const CHECKOUT_URL = "https://buy.stripe.com/eVqfZi5uk8lb4C2fWk1kA00";
+
+const chapters = [
+  { num: "01", title: "Why Agentic AI is the Biggest Opportunity", desc: "Market timing, revenue models, and why indie hackers win this wave over enterprises." },
+  { num: "02", title: "Agent Architecture 101", desc: "The perception-reasoning-action loop, ReAct pattern, and choosing the right LLM." },
+  { num: "03", title: "The Memory Stack", desc: "3-layer memory architecture, vector databases, RAG patterns, and semantic search." },
+  { num: "04", title: "Tool Use & Function Calling", desc: "Giving agents hands — APIs, MCP, custom tools, sandboxing, and security." },
+  { num: "05", title: "Prompt Engineering for Agents", desc: "IDENTITY.md pattern, trust ladders, guardrails, and prompt versioning." },
+  { num: "06", title: "Multi-Agent Systems", desc: "Supervisor, pipeline, and peer-to-peer orchestration with working code." },
+  { num: "07", title: "Shipping to Production", desc: "Observability, error handling, cost management, testing, and deployment." },
+  { num: "08", title: "5 Agents You Can Build This Weekend", desc: "Complete blueprints for content, support, code review, data, and sales agents." },
+  { num: "09", title: "The Business Side", desc: "Pricing models, cost structure, distribution, legal, and a 90-day launch plan." },
+  { num: "10", title: "Templates & Quick-Start Kit", desc: "Copy-paste templates: identity docs, system prompts, eval checklists, and starter scripts." },
+];
+
+const audiences = [
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>`,
+    title: "Indie Hackers",
+    desc: "Building your first AI product. You want a proven playbook, not trial and error."
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+    title: "Solo Developers",
+    desc: "You can call an API. You need the production engineering playbook to ship and charge."
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+    title: "Small Teams",
+    desc: "Architecture patterns, multi-agent systems, and production checklists you can steal."
+  },
+];
+
+const stats = [
+  { value: 31, suffix: "K+", label: "Words" },
+  { value: 85, suffix: "+", label: "Pages" },
+  { value: 10, suffix: "", label: "Chapters" },
+  { value: 5, suffix: "", label: "Ready-to-Build Blueprints" },
+];
+---
+
+<Layout
+  title="Ship Your AI Agent — A Production Playbook | SyncLabs"
+  description="31,000-word guide covering agent architecture, memory systems, tool use, multi-agent orchestration, and 5 ready-to-build blueprints. From prototype to paying customers."
+>
+  <Navbar />
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="relative min-h-screen flex flex-col justify-center pt-24 pb-16 noise-overlay">
+      <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-cream/5 rounded-full blur-[180px]"></div>
+
+      <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <!-- Badge -->
+        <div class="animate-fade-in-up mb-8">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-overlay-medium border border-border-light text-sm font-medium text-silver">
+            <span class="w-2 h-2 rounded-full bg-cream animate-pulse"></span>
+            New — 85 Pages, 10 Chapters, Code Included
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-light leading-[1.05] tracking-tight mb-6">
+          <BlurText
+            client:visible
+            text="Ship Your"
+            delay={150}
+            animateBy="words"
+            direction="top"
+            className="text-white"
+          />
+          <br class="hidden sm:block" />
+          <GradientText
+            client:visible
+            colors={["#F2E9E4", "#BFBCBA", "#F2E9E4", "#BFBCBA", "#F2E9E4"]}
+            animationSpeed={4}
+          >
+            AI Agent
+          </GradientText>
+        </h1>
+
+        <p class="text-lg sm:text-xl text-silver/70 max-w-2xl mx-auto mb-4 animate-fade-in-up animation-delay-100">
+          A production playbook for indie hackers. From prototype to paying customers — architecture, memory, tools, multi-agent systems, and 5 agents you can build this weekend.
+        </p>
+
+        <!-- Price -->
+        <div class="mb-8 animate-fade-in-up animation-delay-200">
+          <span class="text-5xl font-extrabold text-cream">$29</span>
+          <span class="text-silver/50 ml-2 text-sm">one-time purchase</span>
+        </div>
+
+        <!-- CTA -->
+        <div class="flex flex-col items-center gap-4 animate-fade-in-up animation-delay-300">
+          <Magnet client:visible padding={60} magnetStrength={3}>
+            <AnimatedButton
+              client:visible
+              href={CHECKOUT_URL}
+              glow={true}
+              shimmerColor="#F2E9E4"
+              shimmerDuration="3s"
+              background="linear-gradient(135deg, #F2E9E4, #BFBCBA)"
+              className="!text-[#0D0D0D]"
+            >
+              Get the Playbook
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </AnimatedButton>
+          </Magnet>
+          <span class="text-xs text-silver/40">Instant PDF download after purchase</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="relative py-16 border-t border-b border-border/30">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <StatsCount
+          client:visible
+          stats={stats}
+          showDividers={true}
+        />
+      </div>
+    </section>
+
+    <!-- ===== WHAT'S INSIDE ===== -->
+    <section class="relative py-20 lg:py-28">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-cream/60 mb-4">What's Inside</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cream leading-tight">
+            10 Chapters of Production-Ready Knowledge
+          </h2>
+          <p class="text-silver/50 mt-4 max-w-2xl mx-auto">
+            Every chapter includes working code, architecture patterns, and practical advice you can apply today.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+          {chapters.map((ch) => (
+            <SpotlightCard
+              client:visible
+              className="rounded-xl border border-border bg-surface/50 p-6 hover:border-cream/20 transition-colors"
+              spotlightColor="rgba(242, 233, 228, 0.08)"
+            >
+              <div class="flex items-start gap-4">
+                <span class="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-cream/10 text-cream text-sm font-bold">
+                  {ch.num}
+                </span>
+                <div>
+                  <h3 class="text-base font-semibold text-cream mb-1">{ch.title}</h3>
+                  <p class="text-sm text-silver/50 leading-relaxed">{ch.desc}</p>
+                </div>
+              </div>
+            </SpotlightCard>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHO IT'S FOR ===== -->
+    <section class="relative py-20 lg:py-28 border-t border-border/30">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-cream/60 mb-4">Who It's For</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-cream leading-tight">
+            Built for Builders
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          {audiences.map((a) => (
+            <div class="rounded-xl border border-border bg-surface/50 p-6 hover:border-cream/20 transition-colors">
+              <div class="w-12 h-12 rounded-lg bg-cream/10 flex items-center justify-center text-cream mb-4">
+                <Fragment set:html={a.icon} />
+              </div>
+              <h3 class="text-lg font-semibold text-cream mb-2">{a.title}</h3>
+              <p class="text-sm text-silver/50 leading-relaxed">{a.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="relative py-12 lg:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ClickSpark client:visible sparkColor="#F2E9E4" sparkCount={12} sparkRadius={25} duration={500}>
+          <div class="relative rounded-3xl overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-charcoal via-gray to-surface"></div>
+            <div class="absolute top-0 right-0 w-96 h-96 bg-silver/20 rounded-full blur-[128px]"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-cream/20 rounded-full blur-[128px]"></div>
+
+            <div class="relative z-10 py-16 lg:py-24 px-6 lg:px-16 text-center">
+              <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-cream leading-tight max-w-3xl mx-auto mb-6">
+                <RevealText client:visible mode="auto" stagger={0.1} className="inline">
+                  Start Building Your AI Agent
+                </RevealText>
+                <span class="text-silver"> Today</span>
+              </h2>
+
+              <p class="text-lg text-cream/70 max-w-2xl mx-auto mb-4">
+                Everything you need to go from prototype to production. One guide. One price.
+              </p>
+
+              <div class="mb-8">
+                <span class="text-4xl font-extrabold text-white">$29</span>
+                <span class="text-cream/50 ml-2">— Instant Download</span>
+              </div>
+
+              <div class="flex flex-col items-center justify-center gap-4">
+                <Magnet client:visible padding={60} magnetStrength={3}>
+                  <AnimatedButton
+                    client:visible
+                    href={CHECKOUT_URL}
+                    glow={true}
+                    shimmerColor="#ffffff"
+                    shimmerDuration="2.5s"
+                    background="rgba(255,255,255,1)"
+                    className="!text-[#0D1E30]"
+                  >
+                    <span style="color: #0D1E30">Get the Playbook</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D1E30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </AnimatedButton>
+                </Magnet>
+                <span class="text-sm text-cream/40">PDF format. Read anywhere. Keep forever.</span>
+              </div>
+            </div>
+          </div>
+        </ClickSpark>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

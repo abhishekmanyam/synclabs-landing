@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Thank You — Ship Your AI Agent | SyncLabs"
+  description="Your playbook is ready for download."
+>
+  <Navbar />
+  <main>
+    <section class="relative min-h-[80vh] flex flex-col justify-center pt-24 pb-16">
+      <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] h-[300px] bg-cream/5 rounded-full blur-[180px]"></div>
+
+      <div class="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <!-- Checkmark -->
+        <div class="mb-8">
+          <div class="w-20 h-20 mx-auto rounded-full bg-cream/10 flex items-center justify-center">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F2E9E4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-cream mb-4">
+          Thank You!
+        </h1>
+
+        <p class="text-lg text-silver/70 mb-8">
+          Your copy of <strong class="text-cream">Ship Your AI Agent</strong> is ready. Your download should start automatically. If it doesn't, click the button below.
+        </p>
+
+        <a
+          id="download-btn"
+          href="#"
+          class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-cream text-[#0D0D0D] font-semibold hover:bg-silver transition-colors"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download PDF
+        </a>
+
+        <p class="text-sm text-silver/40 mt-6">
+          A receipt has been sent to your email via Stripe. If you need to re-download, use the link from your purchase confirmation.
+        </p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Get session_id from URL and trigger download
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get("session_id");
+
+  if (sessionId) {
+    const downloadUrl = `/api/download?session_id=${sessionId}`;
+    const btn = document.getElementById("download-btn");
+    if (btn) {
+      btn.setAttribute("href", downloadUrl);
+    }
+    // Auto-trigger download
+    window.location.href = downloadUrl;
+  }
+</script>
